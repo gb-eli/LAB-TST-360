@@ -1,0 +1,15 @@
+{
+  "id": "industria",
+  "name": "Indústria e Máquinas",
+  "version": "0.1.0",
+  "icon": "🏭",
+  "description": "Máquinas, proteções, circulação, ruído e riscos em ambiente industrial.",
+  "renderer": "placeholder",
+  "entry": "modules/industria/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ]
+}

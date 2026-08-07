@@ -1,0 +1,15 @@
+{
+  "id": "epi-lab",
+  "name": "EPI Lab 3D",
+  "version": "0.1.0",
+  "icon": "🦺",
+  "description": "Seleção e análise de Equipamentos de Proteção Individual em situações profissionais.",
+  "renderer": "placeholder",
+  "entry": "modules/epi-lab/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ]
+}

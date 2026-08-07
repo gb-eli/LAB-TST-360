@@ -1,0 +1,1 @@
+export class PerformanceManager{constructor(quality,events){this.quality=quality;this.events=events;this.samples=[];this.last=0}sample(ms){if(!Number.isFinite(ms)||ms<=0)return;this.samples.push(1000/ms);if(this.samples.length>180)this.samples.shift()}average(){return this.samples.length?this.samples.reduce((a,b)=>a+b,0)/this.samples.length:60}}

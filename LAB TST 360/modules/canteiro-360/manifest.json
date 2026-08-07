@@ -1,0 +1,15 @@
+{
+  "id": "canteiro-360",
+  "name": "Canteiro de Obras 360",
+  "version": "0.1.0",
+  "icon": "🏗️",
+  "description": "Inspeções virtuais, identificação de perigos, trabalho em altura e organização de canteiro.",
+  "renderer": "placeholder",
+  "entry": "modules/canteiro-360/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ]
+}

@@ -1,0 +1,1 @@
+export class EventBus{constructor(){this.listeners=new Map()}on(n,h){if(!this.listeners.has(n))this.listeners.set(n,new Set());this.listeners.get(n).add(h);return()=>this.off(n,h)}off(n,h){this.listeners.get(n)?.delete(h)}emit(n,p){this.listeners.get(n)?.forEach(h=>{try{h(p)}catch(e){console.error(`[TST360] Evento ${n}`,e)}})}clear(){this.listeners.clear()}}

@@ -1,0 +1,15 @@
+{
+  "id": "investigacao-acidentes",
+  "name": "Investigação de Acidentes",
+  "version": "0.1.0",
+  "icon": "🔎",
+  "description": "Análise de evidências, causas, fatores contribuintes e medidas preventivas.",
+  "renderer": "placeholder",
+  "entry": "modules/investigacao-acidentes/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ]
+}
