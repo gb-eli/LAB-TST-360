@@ -1,0 +1,200 @@
+{
+  "version": "0.37.0",
+  "type": "g10.7-scenic-prop-pack",
+  "name": "TST 360 Scenic Props G10.7",
+  "notice": "Props cenográficos low-poly para composição visual. Não representam procedimento, conformidade, capacidade ou arranjo operacional seguro.",
+  "assets": {
+    "construction-aggregate-pile": {
+      "label": "pilha de agregado",
+      "sector": "construction",
+      "repeatable": false,
+      "targetSize": 1.35,
+      "lod": {
+        "eco": "construction-aggregate-pile_lod0.glb",
+        "medium": "construction-aggregate-pile_lod0.glb",
+        "high": "construction-aggregate-pile_lod1.glb",
+        "ultra": "construction-aggregate-pile_lod1.glb"
+      }
+    },
+    "construction-site-bin": {
+      "label": "caçamba cenográfica",
+      "sector": "construction",
+      "repeatable": false,
+      "targetSize": 1.45,
+      "lod": {
+        "eco": "construction-site-bin_lod0.glb",
+        "medium": "construction-site-bin_lod0.glb",
+        "high": "construction-site-bin_lod1.glb",
+        "ultra": "construction-site-bin_lod1.glb"
+      }
+    },
+    "industry-material-tote": {
+      "label": "tote de material",
+      "sector": "industry",
+      "repeatable": true,
+      "targetSize": 1.18,
+      "lod": {
+        "eco": "industry-material-tote_lod0.glb",
+        "medium": "industry-material-tote_lod0.glb",
+        "high": "industry-material-tote_lod1.glb",
+        "ultra": "industry-material-tote_lod1.glb"
+      }
+    },
+    "industry-utility-column": {
+      "label": "coluna utilitária",
+      "sector": "industry",
+      "repeatable": false,
+      "targetSize": 1.25,
+      "lod": {
+        "eco": "industry-utility-column_lod0.glb",
+        "medium": "industry-utility-column_lod0.glb",
+        "high": "industry-utility-column_lod1.glb",
+        "ultra": "industry-utility-column_lod1.glb"
+      }
+    },
+    "port-mooring-bollard": {
+      "label": "cabeço de amarração cenográfico",
+      "sector": "port",
+      "repeatable": true,
+      "targetSize": 1.05,
+      "lod": {
+        "eco": "port-mooring-bollard_lod0.glb",
+        "medium": "port-mooring-bollard_lod0.glb",
+        "high": "port-mooring-bollard_lod1.glb",
+        "ultra": "port-mooring-bollard_lod1.glb"
+      }
+    },
+    "port-quay-light": {
+      "label": "luminária de cais",
+      "sector": "port",
+      "repeatable": true,
+      "targetSize": 1.55,
+      "lod": {
+        "eco": "port-quay-light_lod0.glb",
+        "medium": "port-quay-light_lod0.glb",
+        "high": "port-quay-light_lod1.glb",
+        "ultra": "port-quay-light_lod1.glb"
+      }
+    },
+    "health-linen-cart": {
+      "label": "carrinho de roupa",
+      "sector": "health",
+      "repeatable": false,
+      "targetSize": 1.15,
+      "lod": {
+        "eco": "health-linen-cart_lod0.glb",
+        "medium": "health-linen-cart_lod0.glb",
+        "high": "health-linen-cart_lod1.glb",
+        "ultra": "health-linen-cart_lod1.glb"
+      }
+    },
+    "health-privacy-screen": {
+      "label": "biombo",
+      "sector": "health",
+      "repeatable": false,
+      "targetSize": 1.45,
+      "lod": {
+        "eco": "health-privacy-screen_lod0.glb",
+        "medium": "health-privacy-screen_lod0.glb",
+        "high": "health-privacy-screen_lod1.glb",
+        "ultra": "health-privacy-screen_lod1.glb"
+      }
+    },
+    "office-printer-cabinet": {
+      "label": "móvel com impressora",
+      "sector": "office",
+      "repeatable": false,
+      "targetSize": 1.25,
+      "lod": {
+        "eco": "office-printer-cabinet_lod0.glb",
+        "medium": "office-printer-cabinet_lod0.glb",
+        "high": "office-printer-cabinet_lod1.glb",
+        "ultra": "office-printer-cabinet_lod1.glb"
+      }
+    },
+    "office-planter": {
+      "label": "jardineira",
+      "sector": "office",
+      "repeatable": true,
+      "targetSize": 1.0,
+      "lod": {
+        "eco": "office-planter_lod0.glb",
+        "medium": "office-planter_lod0.glb",
+        "high": "office-planter_lod1.glb",
+        "ultra": "office-planter_lod1.glb"
+      }
+    },
+    "warehouse-plastic-tote": {
+      "label": "tote plástico",
+      "sector": "warehouse",
+      "repeatable": true,
+      "targetSize": 1.0,
+      "lod": {
+        "eco": "warehouse-plastic-tote_lod0.glb",
+        "medium": "warehouse-plastic-tote_lod0.glb",
+        "high": "warehouse-plastic-tote_lod1.glb",
+        "ultra": "warehouse-plastic-tote_lod1.glb"
+      }
+    },
+    "warehouse-label-stand": {
+      "label": "suporte de identificação",
+      "sector": "warehouse",
+      "repeatable": true,
+      "targetSize": 1.15,
+      "lod": {
+        "eco": "warehouse-label-stand_lod0.glb",
+        "medium": "warehouse-label-stand_lod0.glb",
+        "high": "warehouse-label-stand_lod1.glb",
+        "ultra": "warehouse-label-stand_lod1.glb"
+      }
+    },
+    "workshop-tool-chest": {
+      "label": "baú de ferramentas",
+      "sector": "workshop",
+      "repeatable": false,
+      "targetSize": 1.25,
+      "lod": {
+        "eco": "workshop-tool-chest_lod0.glb",
+        "medium": "workshop-tool-chest_lod0.glb",
+        "high": "workshop-tool-chest_lod1.glb",
+        "ultra": "workshop-tool-chest_lod1.glb"
+      }
+    },
+    "workshop-parts-bin": {
+      "label": "gaveteiro de peças",
+      "sector": "workshop",
+      "repeatable": true,
+      "targetSize": 1.0,
+      "lod": {
+        "eco": "workshop-parts-bin_lod0.glb",
+        "medium": "workshop-parts-bin_lod0.glb",
+        "high": "workshop-parts-bin_lod1.glb",
+        "ultra": "workshop-parts-bin_lod1.glb"
+      }
+    },
+    "electrical-cable-reel": {
+      "label": "carretel cenográfico",
+      "sector": "electrical",
+      "repeatable": false,
+      "targetSize": 1.15,
+      "lod": {
+        "eco": "electrical-cable-reel_lod0.glb",
+        "medium": "electrical-cable-reel_lod0.glb",
+        "high": "electrical-cable-reel_lod1.glb",
+        "ultra": "electrical-cable-reel_lod1.glb"
+      }
+    },
+    "electrical-marker-post": {
+      "label": "marcador de área",
+      "sector": "electrical",
+      "repeatable": true,
+      "targetSize": 1.1,
+      "lod": {
+        "eco": "electrical-marker-post_lod0.glb",
+        "medium": "electrical-marker-post_lod0.glb",
+        "high": "electrical-marker-post_lod1.glb",
+        "ultra": "electrical-marker-post_lod1.glb"
+      }
+    }
+  }
+}
