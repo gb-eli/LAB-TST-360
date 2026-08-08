@@ -1,0 +1,177 @@
+TST 360 — VALIDAÇÃO v0.35.0 / G10.5
+Data: 08/08/2026
+
+RESULTADO GLOBAL
+- erros encontrados: 0
+- JavaScript: 73 — sintaxe OK
+- JSON: 76 — válidos
+- imports relativos locais: 135 — caminhos OK
+- GLBs: 125 — preservados
+- WebP: 48 — preservados
+- laboratórios principais: 8
+- setores: 8
+- missões: 16
+- variantes: 48
+- riscos setoriais: 64
+
+G10.5 — REALISMO SETORIAL
+- perfis visuais: 11
+- viewports com visualProfile: 18
+- contextos de performance budget: 25
+
+PERFIS VISUAIS
+- epi
+- construction
+- industry
+- confined
+- forensic
+- port
+- health
+- office
+- warehouse
+- workshop
+- electrical
+
+MATERIAIS PROCEDURAIS NOVOS
+- asphalt
+- tile
+- wood
+- epoxy
+
+Exemplos validados:
+- Porto → asphalt
+- Saúde → tile
+- Escritório → wood
+
+Nenhum arquivo de textura foi adicionado.
+As texturas são geradas em CanvasTexture no navegador.
+
+CONTEXTUAL DRESSING — SMOKE TEST
+Eco:
+- created: 1
+- visible: 1
+
+Médio:
+- created: 3
+- visible: 3
+
+Alto:
+- created: 5
+- visible: 5
+
+Ultra:
+- created: 7
+- visible: 7
+
+Após Ultra → Eco:
+- created: 7
+- visible: 1
+
+Resultado:
+- criação incremental por qualidade — OK
+- dispositivo Eco não instancia capacidade Ultra inicialmente — OK
+- queda de qualidade oculta extras — OK
+
+COMPLEXIDADE TEÓRICA MÁXIMA DA CAMADA
+Ultra:
+- até 21 drawables contextuais
+- aproximadamente 534 triângulos procedurais
+
+A camada permanece muito pequena em relação aos budgets das cenas.
+
+PERFORMANCE BUDGETS
+Budgets v0.35 comparados automaticamente com v0.34.
+Headroom adicional somente para cenas que recebem contextual dressing.
+Campus 3D permanece sem alteração.
+
+Incrementos planejados:
+Eco:
+- +6 calls
+- +2.500 triângulos
+- +1 textura
+- +8 geometrias
+
+Médio:
+- +12 calls
+- +5.000 triângulos
+- +1 textura
+- +15 geometrias
+
+Alto:
+- +20 calls
+- +9.000 triângulos
+- +2 texturas
+- +24 geometrias
+
+Ultra:
+- +28 calls
+- +13.000 triângulos
+- +2 texturas
+- +32 geometrias
+
+Todos os 25 contextos foram comparados — OK.
+
+SEMÂNTICA / SEGURANÇA
+ContextualDressingManager:
+- usa `userData.tstDecorative = true`
+- não usa addPickable
+- não registra riskId
+- não acessa RiskEngine
+
+Portanto, os props contextuais NÃO viram riscos, evidências ou controles da missão.
+São somente ambientação visual didática.
+
+COBERTURA
+A camada foi integrada nos principais renderers:
+- EPI
+- Canteiro
+- Ergonomia
+- Indústria
+- Espaço Confinado
+- Eletricidade
+- Incêndio/Evacuação
+- Investigação
+- Porto — pátio e doca
+- Saúde — apoio e transporte
+- Escritório — posto e emergência
+- Almoxarifado — armazenamento e picking
+- Oficina — esmerilhamento e manutenção
+
+Adapters de Construção, Indústria e Obras Elétricas reutilizam renderers-base e herdam a melhoria.
+
+SCENE METRICS
+Novo campo:
+- dressing.profile
+- dressing.created
+- dressing.visible
+
+O tooltip de performance passa a mostrar o contexto visual ativo.
+
+HTTP LOCAL
+17 rotas críticas testadas com status 200.
+
+AUDITORIA VISUAL AUTOMATIZADA
+Foi tentado Chromium headless local para screenshot/auditoria visual interativa.
+O processo não encerrou corretamente neste ambiente por limitações do runtime Chromium/DBus.
+Por isso a auditoria interativa NÃO foi marcada como aprovada.
+
+A validação concluída cobre:
+- sintaxe
+- imports
+- JSON
+- assets
+- qualidade adaptativa
+- criação incremental
+- budgets
+- integração das cenas
+- métricas
+- HTTP
+
+ASSETS
+- GLBs novos: 0
+- WebP novos: 0
+- total: 125 GLBs
+- total: 48 WebP
+
+RESULTADO FINAL
+- 0 erros na validação técnica global

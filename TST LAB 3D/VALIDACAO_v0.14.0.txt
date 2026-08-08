@@ -1,0 +1,63 @@
+TST 360 — VALIDAÇÃO v0.14.0
+Data: 07/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 43 arquivos — sintaxe OK
+- JSON: 23 arquivos — válidos
+- Imports relativos locais: 64 — caminhos OK
+- Laboratórios principais registrados: 8 — preservados
+- GLBs: 81 — glTF 2.0 válidos
+- Setores profissionais: 8 — OK
+- Missões setoriais: 16 — OK
+- Variantes setoriais A/B/C: 48 — OK
+- Riscos setoriais base: 64 — OK
+- IDs ativos das variantes referenciam riscos válidos — OK
+
+PORTO 3D
+- `three-scenes-sector-port.js` — import ES module OK
+- `SectorHub` — import ES module OK
+- Pack `assets/sectors/porto/g1` — OK
+- 8 GLBs portuários novos — OK
+- container LOD0/LOD1 — OK
+- truck LOD0/LOD1 — OK
+- reachstacker LOD0/LOD1 — OK
+- dock bumper LOD0/LOD1 — OK
+- budgets das duas missões portuárias — presentes
+
+VARIANTES
+- As 16 missões possuem A/B/C
+- Cada variante possui riscos ativos válidos
+- Hotspots 2D possuem offsets por variante
+- Porto 3D recebe `variant` e `activeRiskIds`
+- Pátio e Doca possuem layouts A/B/C com posições operacionais distintas
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/sectors/sectors.json => 200
+- /js/sectors/sector-hub.js => 200
+- /js/graphics/three-scenes-sector-port.js => 200
+- /assets/sectors/porto/g1/manifest.json => 200
+- /assets/sectors/porto/g1/truck_lod1.glb => 200
+- /assets/sectors/porto/g1/container_lod1.glb => 200
+- /data/performance/budgets.json => 200
+- /js/ui/inspection-lab.js => 200
+
+COMPATIBILIDADE
+- GitHub Pages / front-end puro preservado
+- 8 laboratórios anteriores preservados
+- Central TST preservada
+- RiskBridge preservado
+- InspectionSessionService preservado
+- fallback SVG continua disponível para as missões portuárias
+- 3D permanece sob demanda
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. As validações concluídas cobrem sintaxe, estrutura, imports,
+assets, dados, integração modular e carregamento HTTP.
+
+USO EDUCACIONAL
+As cenas portuárias e suas variantes são representações didáticas.
+Não representam distâncias, capacidades, procedimentos ou requisitos certificados
+e não substituem inspeção de campo ou documentação profissional.

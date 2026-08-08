@@ -1,0 +1,199 @@
+TST 360 — VALIDAÇÃO v0.38.0 / G10.8
+Data: 08/08/2026
+
+RESULTADO GLOBAL
+- erros encontrados: 0
+- JavaScript: 79 arquivos — sintaxe OK
+- JSON: 77 arquivos — válidos
+- imports relativos locais: 141 — caminhos OK
+- GLBs: 157 — glTF 2.0 válidos
+- WebP: 48 — preservados
+- laboratórios principais: 8
+- setores profissionais: 8
+- missões setoriais: 16
+- variantes: 48
+- riscos setoriais base: 64
+- performance budgets: 25 contextos
+
+G10.8 — ATMOSFERA
+Novos arquivos:
+- js/graphics/environment-atmosphere-profiles.js
+- js/graphics/environment-atmosphere-manager.js
+
+PERFIS ATMOSFÉRICOS — 12
+- epi
+- construction
+- industry
+- confined
+- forensic
+- port
+- health
+- office
+- warehouse
+- workshop
+- electrical
+- emergency
+
+Cada perfil define:
+- top
+- horizon
+- ground
+- fog
+- key
+- fill
+- accent
+- secondary
+
+PLANO DE QUALIDADE
+Eco:
+- atmosphereDetail = 0
+- shell = false
+- accentLights = 0
+- animated = false
+- fogNearFactor = 1.08
+- fogFarFactor = 1.04
+
+Medium:
+- atmosphereDetail = 1
+- shell = true
+- accentLights = 0
+- animated = false
+
+High:
+- atmosphereDetail = 2
+- shell = true
+- accentLights = 1
+- animated = false
+
+Ultra:
+- atmosphereDetail = 3
+- shell = true
+- accentLights = 2
+- animated = true
+
+SHELL PROCEDURAL
+- CanvasTexture criada em runtime
+- resolução: 64 × 128
+- SphereGeometry: 24 × 14 segmentos
+- material MeshBasicMaterial / BackSide
+- depthWrite = false
+- fog = false
+- nenhum arquivo HDR/JPEG/PNG/WebP é solicitado
+
+FOG
+O manager:
+- preserva near/far base da cena
+- aplica cor por perfil
+- ajusta near/far por qualidade
+- não cria fog em viewports que explicitamente não possuem fog
+
+ILUMINAÇÃO
+Quando EnvironmentManager existe:
+- key/sun recebe tint do perfil
+- fill recebe tint do perfil
+- hemisphere recebe tint do horizonte
+
+Accent lights:
+- PointLight
+- castShadow = false
+- High: 1
+- Ultra: 2
+- Ultra: pulsação apenas de intensidade, sem mover objetos
+
+COERÊNCIA
+- Incêndio/Evacuação usa `atmosphereProfile:'emergency'`
+- não herda a atmosfera elétrica
+- ObjectFocusViewer usa `atmosphere:false`
+- ObjectFocusViewer também mantém `contextProps:false` e `scenicProps:false`
+
+THREEVIEWPORT
+- 20 ocorrências de `new ThreeViewport`
+- 19 ocorrências de `visualProfile`
+- atmosfera é criada apenas quando existe visualProfile e `atmosphere!==false`
+
+MÉTRICAS
+SceneMetrics registra:
+- atmosphere.profile
+- atmosphere.detail
+- atmosphere.shell
+- atmosphere.accentLights
+- atmosphere.animated
+- atmosphere.fog.near/far
+
+Painel de performance exibe:
+- perfil atmosférico
+- nível de detalhe
+- quantidade de luzes de acento
+
+BUDGETS
+Delta validado contra v0.37:
+- Eco: +0
+- Campus: +0 em todos os níveis
+- Medium fora do Campus: +2 calls / +1000 tri / +1 texture / +2 geometries
+- High fora do Campus: +2 / +1000 / +1 / +2
+- Ultra fora do Campus: +2 / +1000 / +1 / +2
+
+O headroom é deliberadamente conservador e cobre o shell procedural.
+
+ASSETS
+- GLBs novos: 0
+- WebP novos: 0
+- total GLB permanece 157
+- total WebP permanece 48
+- nenhum HDRI/cubemap foi adicionado
+
+HTTP LOCAL — 15 ROTAS
+- / => 200
+- /version.json => 200
+- /data/performance/budgets.json => 200
+- /js/graphics/environment-manager.js => 200
+- /js/graphics/environment-atmosphere-profiles.js => 200
+- /js/graphics/environment-atmosphere-manager.js => 200
+- /js/graphics/three-runtime.js => 200
+- /js/graphics/quality-manager.js => 200
+- /js/graphics/scene-metrics.js => 200
+- /js/graphics/three-scenes-g6.js => 200
+- /js/experiences/object-focus-viewer.js => 200
+- /docs/ARQUITETURA_v0.38.md => 200
+- /docs/ATMOSPHERE_PROFILES_v0.38.md => 200
+- /docs/ATMOSPHERE_PERFORMANCE_v0.38.md => 200
+- /docs/ATMOSPHERE_AUDIT_v0.38.md => 200
+
+AUDITORIA VISUAL INTERATIVA
+Não foi marcada como aprovada nesta rodada.
+
+A validação concluída cobre:
+- sintaxe
+- imports
+- JSON
+- GLB
+- WebP
+- perfis
+- planos de qualidade
+- integração do ThreeViewport
+- isolamento do ObjectFocus
+- coerência da cena de evacuação
+- budgets
+- HTTP
+
+Após publicar no GitHub Pages, recomenda-se observar:
+- legibilidade do céu/fundo no projetor
+- contraste de hotspots/riscos em High/Ultra
+- fog em cenas grandes
+- cenas internas em Medium
+- impacto das 2 PointLights em GPUs móveis
+
+SEGURANÇA PEDAGÓGICA
+A atmosfera é direção artística didática.
+
+Não representa:
+- simulação fotométrica
+- medição de iluminância
+- visibilidade certificada
+- concentração de fumaça
+- previsão meteorológica
+- avaliação de conformidade
+
+RESULTADO FINAL
+A G10.8 aumenta profundidade e identidade visual sem adicionar novos assets
+de imagem ou modelos 3D.

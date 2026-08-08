@@ -1,0 +1,24 @@
+TST 360 — VALIDAÇÃO v0.10.0 / G8
+Data: 07/08/2026
+
+RESULTADOS
+- JavaScript: 37 arquivos, sintaxe validada com node --check.
+- JSON: 20 arquivos válidos.
+- Imports locais JS: 51 referências verificadas, 0 ausentes.
+- Laboratórios registrados: 8.
+- Entry points dos 8 laboratórios: presentes.
+- GLB: 73 arquivos com cabeçalho glTF 2.0 válido.
+- index.html: documento único e referências locais existentes.
+- Central TST: smoke test de montagem do dashboard e matriz de risco aprovado.
+- HTTP local: 200 para home, version.json, modules.json, templates da Central TST, toolkit, SceneMetrics, InstancingManager e manifesto do Canteiro.
+
+G8
+- SceneMetrics integrado ao ThreeViewport.
+- FPS, draw calls, triângulos, geometrias, texturas, instâncias e cache disponíveis por EventBus.
+- InstancingManager integrado ao Canteiro para objetos procedurais repetidos.
+- Central TST adicionada fora do catálogo dos 8 laboratórios.
+- Matriz de risco, APR, checklist, inventário, PGR/plano de ação e portfólio JSON.
+
+LIMITAÇÃO DA VALIDAÇÃO
+- O ambiente atual não disponibiliza o executável agent-browser/Chromium de verificação visual automatizada. Portanto, a auditoria visual headless completa não foi marcada como realizada.
+- O Three.js continua sendo carregado por CDN apenas quando o modo 3D é ativado; a disponibilidade externa do CDN não é testada no ambiente offline desta validação.

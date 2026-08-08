@@ -1,0 +1,127 @@
+TST 360 — VALIDAÇÃO v0.25.0 / G9.5
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 58 arquivos — sintaxe OK
+- JSON: 32 arquivos — válidos
+- Imports relativos locais: 107 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+- Performance budgets: 25 contextos
+
+CHARACTER POPULATION MANAGER
+- `js/graphics/character-population.js` — sintaxe/import OK
+- plano Eco: 0 pessoas / 0 skinned / distância ativa 0
+- plano Médio: 2 pessoas / 0 skinned / distância ativa 11
+- plano Alto: 4 pessoas / até 2 skinned / distância ativa 16
+- plano Ultra: 6 pessoas / até 3 skinned / distância ativa 22
+- hard cap padrão: 6
+- expansão incremental — implementada
+- expansão concorrente bloqueada por `expanding` — implementada
+- lista vazia de specs não entra em loop — validado estruturalmente
+
+CULLING / PAUSA
+Teste High:
+- personagem a 5 unidades: visível, ativo, update executado
+- personagem a 19 unidades: visível, animação pausada
+- personagem a 25 unidades: oculto, animação pausada
+- personagem a 8 unidades: visível, ativo, update executado
+
+Teste Eco:
+- todos os personagens da população ocultos
+- todos pausados
+- nenhuma atualização de animação executada
+
+RENDER DISTANCE
+- usa `activeDistance + renderMargin`
+- renderMargin padrão: 6
+- limitado pelo maxDistance da população
+- distância ativa e distância de renderização permanecem independentes
+
+MIX SKINNED / PROCEDURAL
+- `currentSkinned() < skinnedPopulation` decide se novo personagem solicita Character Pack
+- Médio cria população procedural
+- Alto pode criar até 2 skinned
+- Ultra pode criar até 3 skinned
+- Character Pack solicitado segue G2.1 → G2 → G1 → procedural
+- personagens principais permanecem fora do limite da população
+
+DESSINCRONIZAÇÃO
+- phase individual — implementado
+- pequena variação de speed — implementada
+- appearance distribuída deterministicamente — implementada
+- AnimationMixer pode receber fase inicial via setTime
+- patrol senoidal opcional — implementado
+
+INTEGRAÇÕES
+- Indústria — população adaptativa
+- Porto / Pátio — população adaptativa
+- Porto / Doca — população adaptativa
+- Saúde / Apoio — população adaptativa
+- Saúde / Transporte — população adaptativa
+- Porto migrou personagens principais para CharacterController
+- Porto não contém chamadas antigas createCharacterRig/createCharacterMotion — OK
+- cenas de Indústria/Porto/Saúde importam via Node — OK
+
+QUALITY PROFILES
+Todos os perfis possuem:
+- populationCount
+- skinnedPopulation
+- populationActiveDistance
+
+PERFORMANCE
+- budgets recalibrados para:
+  - industria
+  - sector-industria-linha-producao
+  - sector-industria-abastecimento-interno
+  - sector-porto-logistica-patio-conteineres
+  - sector-porto-logistica-doca-carregamento
+  - sector-saude-apoio-hospitalar
+  - sector-saude-transporte-interno
+- Eco não recebeu custo de população
+- Auto Quality preservado
+- nenhum GLB novo
+- biblioteca permanece em 125 GLBs
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /js/graphics/character-population.js => 200
+- /js/graphics/character-controller.js => 200
+- /js/graphics/character-pack-registry.js => 200
+- /js/graphics/quality-manager.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-port.js => 200
+- /js/graphics/three-scenes-sector-health.js => 200
+- /assets/characters/g21/worker_lod0.glb => 200
+- /assets/characters/g21/tst_lod1.glb => 200
+- /data/characters/packs.json => 200
+- /data/characters/appearances.json => 200
+- /data/performance/budgets.json => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, GLBs, planos de
+população, culling, pausa, qualidade, integração de cenas, budgets e HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- Character Pack G2.1/G2/G1 preservados
+- CharacterRig procedural preservado
+- Character Appearance preservado
+- Campus e Central TST preservados
+- RiskEngine/RiskBridge preservados
+- fallback 2D/SVG preservado
+
+IMPORTANTE
+A população de personagens é contexto visual didático. Quantidade, posição e
+movimento não representam dimensionamento real de equipes, produtividade,
+capacidade, fluxo operacional ou requisitos normativos.

@@ -1,0 +1,207 @@
+TST 360 — VALIDAÇÃO v0.32.0 / G10.2
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 70 arquivos — sintaxe OK
+- JSON: 76 arquivos — válidos
+- Imports relativos locais: 131 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — preservados
+- WebP G10: 48 — preservados
+
+TOURS VISUAIS G10.2
+- tours: 8
+- etapas por tour: 4
+- etapas totais: 32
+- panoramas usados nas etapas: 16
+- objetos 3D usados nas etapas: 8
+- missões usadas nas etapas: 8
+
+SEQUÊNCIA VALIDADA NOS 8 SETORES
+1. panorama
+2. object3d
+3. panorama
+4. mission3d
+
+REFERÊNCIAS
+- todos os tour sectorId correspondem ao setor — OK
+- todos os tour paths existem — OK
+- todos os panorama experienceId existem — OK
+- todos os panorama nodeId existem no graph correspondente — OK
+- todos os object3d experienceId existem — OK
+- todas as mission3d existem no environment e em data/sectors/sectors.json — OK
+- todas as coordenadas do mini-mapa estão entre 0 e 100 — OK
+
+DADOS
+- `data/tours/index.json`
+- 8 arquivos setoriais em `data/tours/`
+- `data/environments/index.json` atualizado para 4 experiências por setor
+- cada sector.json aponta para o tour correspondente
+- total conceitual: 32 experiências visuais (4 × 8 setores)
+
+NOVOS RUNTIMES
+- `js/experiences/environment-visual-tour.js`
+- `js/experiences/visual-tour-progress-service.js`
+
+PROGRESSO
+Smoke test executado com StorageService simulado:
+- início: 0/4 = 0%
+- duas etapas visitadas: 2/4 = 50%
+- revisitar etapa não duplica contagem — OK
+- mudar currentStep sem visitar não altera percentual — OK
+- três etapas: 3/4 = 75%
+- entrar na tela da missão: continua 75% — OK
+- lançar missão: 4/4 = 100% — OK
+- complete = true — OK
+- completedAt salvo — OK
+- reset → 0% — OK
+
+REGRA DA MISSÃO
+A quarta etapa só é marcada como visitada quando o usuário aciona:
+`Abrir missão 3D`.
+
+Apenas chegar à tela de lançamento não conclui o tour.
+
+MINI-MAPA
+- 4 pontos por tour
+- linha conectando pontos
+- etapas clicáveis
+- estado atual
+- estado visitado
+- labels
+- layout responsivo
+- posições são esquemáticas, não métricas
+
+NAVEGAÇÃO
+- etapa anterior
+- próxima etapa
+- salto por mini-mapa
+- salto por dots
+- hotspot panorâmico pode direcionar para etapa equivalente do tour
+- reset do percurso
+
+RETOMADA
+Chave:
+`visual-tour-progress:<tour-id>`
+
+Dados:
+- currentStepId
+- visitedStepIds
+- startedAt
+- updatedAt
+- completedAt
+
+Ao reabrir:
+- card mostra percentual
+- botão muda Iniciar → Continuar
+- última etapa é restaurada
+
+LAZY LOADING
+Validação estrutural:
+- EnvironmentVisualTour NÃO é importado estaticamente pelo Hub
+- arquivo `data/tours/<sector>.json` é solicitado somente no openTour()
+- Panorama360Viewer é importado somente na etapa panorama
+- ObjectFocusViewer é importado somente na etapa object3d
+- missão não monta scene dentro do tour
+- tour entrega a missão ao SectorHub
+- próxima etapa não é pré-carregada
+
+PANORAMA
+`Panorama360Viewer` ganhou:
+- `initialNodeId`
+
+O tour consegue abrir diretamente a segunda zona sem primeiro solicitar o node padrão.
+
+CAMPUS
+- cada setor mostra `tour XX%`
+- cabeçalho mostra tours concluídos / 8
+- Campus lê apenas localStorage
+- Campus não carrega JSON dos tours
+
+ASSETS
+- nenhum GLB novo
+- nenhum WebP novo
+- total permanece 125 GLBs
+- total permanece 48 WebP G10
+- tours apenas orquestram módulos existentes
+
+HTTP LOCAL — 20 ROTAS
+- / => 200
+- /version.json => 200
+- /data/tours/index.json => 200
+- /data/tours/porto-logistica.json => 200
+- /data/tours/saude.json => 200
+- /data/environments/index.json => 200
+- /data/environments/porto-logistica.json => 200
+- /data/environments/porto-logistica/panorama/doca.json => 200
+- /js/experiences/environment-experience-hub.js => 200
+- /js/experiences/environment-visual-tour.js => 200
+- /js/experiences/visual-tour-progress-service.js => 200
+- /js/experiences/panorama360-viewer.js => 200
+- /js/experiences/object-focus-viewer.js => 200
+- /js/sectors/sector-hub.js => 200
+- /js/campus/campus-hub.js => 200
+- /css/labs.css => 200
+- /docs/ARQUITETURA_v0.32.md => 200
+- /docs/VISUAL_TOURS_v0.32.md => 200
+- /docs/TOUR_PROGRESS_v0.32.md => 200
+- /docs/TOUR_LAZY_LOADING_v0.32.md => 200
+
+AUDITORIA VISUAL INTERATIVA
+Não foi marcada como aprovada nesta rodada.
+
+A validação executada cobre:
+- sintaxe
+- JSON
+- imports
+- GLBs
+- WebP
+- referências dos 8 tours
+- 32 etapas
+- progress service
+- regra da missão final
+- lazy imports
+- initialNodeId
+- Campus
+- HTTP
+
+Após publicar no GitHub Pages, continua recomendável conferir em navegador real:
+- mini-mapa em projetor
+- toque em mobile
+- transição entre etapas
+- retorno após missão
+- retomada do progresso
+- Tela de apresentação
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8 setores preservados
+- 16 missões / 48 variantes preservadas
+- 16 nodes / 80 hotspots preservados
+- 48 WebP G10 preservados
+- 125 GLBs preservados
+- autoria/calibração G10.1 preservada
+- panorama procedural preservado
+- panorama equiretangular preservado
+- Central TST preservada
+- RiskEngine/RiskBridge preservados
+- Scenario Activity Director preservado
+- Character Population preservado
+- mesma ferramenta para qualquer usuário; sem roles
+
+SEGURANÇA PEDAGÓGICA
+Os tours são percursos visuais educacionais.
+Não representam:
+- procedimento operacional real
+- roteiro oficial de inspeção
+- capacitação certificada
+- autorização de trabalho
+- sequência normativa obrigatória
+
+RESULTADO FINAL
+- erros encontrados na validação global: 0

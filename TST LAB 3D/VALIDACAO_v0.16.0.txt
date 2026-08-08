@@ -1,0 +1,82 @@
+TST 360 — VALIDAÇÃO v0.16.0
+Data: 07/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 47 arquivos — sintaxe OK
+- JSON: 25 arquivos — válidos
+- Imports relativos locais: 78 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- GLBs: 97 — glTF 2.0 válidos
+- Setores profissionais: 8 — OK
+- Missões setoriais: 16 — OK
+- Variantes A/B/C: 48 — OK
+- Riscos setoriais base: 64 — OK
+- Riscos ativos das variantes referenciam IDs válidos — OK
+
+CAMPUS 3D
+- `js/campus/three-campus.js` — sintaxe/import OK
+- 8 zonas/prédios setoriais — presentes
+- picking dinâmico `sector:${zone.id}` — OK
+- Central TST (`campus:tools`) — OK
+- Pavilhão de Laboratórios (`campus:home`) — OK
+- CampusHub alterna `Mapa 2D` / `Maquete 3D` — OK
+- preferência `campus:view` — presente
+- budget `campus-3d` — presente
+- falha do 3D retorna ao 2D — implementado
+
+ESCRITÓRIO 3D
+- `three-scenes-sector-office.js` — sintaxe/import OK
+- `Postos de trabalho` — factory 3D integrada
+- `Preparação para emergência` — factory 3D integrada
+- mapas dos 8 riscos das duas missões — presentes
+- variantes A/B/C recebidas pelo renderer
+- CharacterRig sentado — reutilizado
+- Instancing — usado em caixas, postos e rotas
+
+ASSETS DE ESCRITÓRIO
+- pack `assets/sectors/escritorio/g1/` — OK
+- desk LOD0/LOD1 — OK
+- chair LOD0/LOD1 — OK
+- monitor LOD0/LOD1 — OK
+- extinguisher LOD0/LOD1 — OK
+- 8 novos GLBs
+- biblioteca total: 97 GLBs
+
+PERFORMANCE
+- budget `sector-escritorio-posto-trabalho` — presente
+- budget `sector-escritorio-emergencia-escritorio` — presente
+- budget `campus-3d` — presente
+- budgets Porto/Saúde anteriores — preservados
+- Performance Manager agora amostra quando `scene:metrics` está ativo
+- setores 3D e Campus 3D participam do modo Automático
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /js/campus/campus-hub.js => 200
+- /js/campus/three-campus.js => 200
+- /js/graphics/three-scenes-sector-office.js => 200
+- /assets/sectors/escritorio/g1/manifest.json => 200
+- /assets/sectors/escritorio/g1/monitor_lod1.glb => 200
+- /data/performance/budgets.json => 200
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 48 variantes setoriais preservadas
+- Porto 3D preservado
+- Hospital 3D preservado
+- Central TST, RiskBridge e InspectionSessionService preservados
+- mapa 2D do Campus preservado como fallback
+- SVG setorial preservado como fallback
+- 3D continua sob demanda
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless.
+As validações realizadas cobrem sintaxe, imports, dados, assets, integração,
+picking estrutural, performance budgets e carregamento HTTP.
+
+USO EDUCACIONAL
+O Escritório 3D e a maquete do Campus são recursos didáticos. Configurações
+ergonômicas reais dependem de pessoa/tarefa/avaliação, e o sistema não substitui
+plano de emergência, inspeção real, medição ou documentação profissional.

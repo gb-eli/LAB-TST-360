@@ -1,0 +1,84 @@
+TST 360 — VALIDAÇÃO v0.19.0
+Data: 07/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 51 arquivos — sintaxe OK
+- JSON: 27 arquivos — válidos
+- Imports relativos locais: 94 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- GLBs: 113 — glTF 2.0 válidos
+- Setores profissionais: 8 — OK
+- Missões setoriais: 16 — OK
+- Variantes A/B/C: 48 — OK
+- Riscos setoriais base: 64 — OK
+
+COBERTURA 3D
+- Setores 3D no registry: 8/8
+- Construção — adapter ativo
+- Indústria — adapter ativo
+- Porto/Logística — renderer setorial nativo
+- Saúde/Hospital — renderer setorial nativo
+- Escritório — renderer setorial nativo
+- Almoxarifado — renderer setorial nativo
+- Oficina/Manutenção — renderer setorial nativo
+- Obras Elétricas — adapter ativo
+
+ADAPTERS SEMÂNTICOS
+- arquivo `js/sectors/sector-lab-scene-adapters.js` — sintaxe/import OK
+- missões adaptadas: 6
+- Construção / abertura-frente — cobertura 4/4 e marcadores internos únicos
+- Construção / movimentacao-altura — cobertura 4/4 e marcadores internos únicos
+- Indústria / linha-producao — cobertura 4/4 e marcadores internos únicos
+- Indústria / abastecimento-interno — cobertura 4/4 e marcadores internos únicos
+- Obras Elétricas / preparacao-area — cobertura 4/4 e marcadores internos únicos
+- Obras Elétricas / instalacao-temporaria — cobertura 4/4 e marcadores internos únicos
+- found → traduzido para IDs internos
+- activeRiskIds → traduzido para IDs internos
+- markerOffsets3d → combina offset-base + offset da variante
+- picking 3D → traduzido de volta para ID setorial
+
+REUTILIZAÇÃO
+- Construção → createCanteiro3D
+- Indústria → createIndustria3D
+- Obras Elétricas → createEletricidade3D
+- Nenhum GLB novo necessário nesta fase
+- Total permanece em 113 GLBs
+
+PERFORMANCE
+- 6 budgets setoriais novos para as missões adaptadas
+- derivados dos budgets dos laboratórios de origem
+- Auto Quality preservado
+- SceneMetrics preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/sectors/sectors.json => 200
+- /js/sectors/sector-hub.js => 200
+- /js/sectors/sector-3d-registry.js => 200
+- /js/sectors/sector-lab-scene-adapters.js => 200
+- /js/graphics/three-scenes.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-g6.js => 200
+- /js/campus/campus-hub.js => 200
+- /data/performance/budgets.json => 200
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 48 variantes preservadas
+- 113 GLBs preservados
+- Campus 2D/3D preservado
+- Central TST, RiskBridge e InspectionSessionService preservados
+- SVG setorial preservado como fallback
+- 3D sob demanda preservado
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless.
+As validações realizadas cobrem sintaxe, imports, dados, assets, registry,
+mapeamento semântico, budgets e carregamento HTTP.
+
+USO EDUCACIONAL
+Os adapters reutilizam cenários visuais existentes, mas o contrato pedagógico
+permanece o da missão profissional. As cenas não substituem inspeção real,
+procedimentos, medições, capacitação ou documentação oficial.

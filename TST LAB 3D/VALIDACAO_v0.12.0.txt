@@ -1,0 +1,49 @@
+TST 360 — VALIDAÇÃO v0.12.0
+Data: 07/08/2026
+
+RESULTADOS
+- JavaScript: 41 arquivos — sintaxe OK
+- JSON: 21 arquivos — válidos
+- Imports relativos locais: 57 — caminhos OK
+- Laboratórios registrados: 8 — entry points OK
+- GLBs: 73 — glTF 2.0 válidos
+- ScenarioVariantManager:
+  - seleção determinística A/B/C — OK
+  - rotação de variante — OK
+  - aplicação de riscos ativos e offsets — OK
+- InspectionSessionService:
+  - persistência de sessão — OK
+  - relatório HTML — OK
+- Risk Bridge:
+  - variante preservada no risco capturado — OK
+- HTTP local:
+  / => 200
+  /version.json => 200
+  /modules/modules.json => 200
+  /js/tools/inspection-session-service.js => 200
+  /js/simulation/scenario-variant-manager.js => 200
+  /modules/canteiro-360/manifest.json => 200
+  /modules/industria/manifest.json => 200
+  /modules/eletricidade/manifest.json => 200
+  /js/tools/tst-toolkit.js => 200
+
+ESCOPO v0.12.0
+- Fluxo profissional simulado de inspeção
+- Notas de evidência por achado
+- Captura PNG da vista 3D
+- Relatório HTML imprimível
+- Sessões de inspeção na Central TST
+- Rascunho de Plano de Ação a partir de achados
+- Cenários variantes A/B/C em Canteiro, Indústria e Eletricidade
+- Marcadores 2D/3D filtrados pela variante
+- Próxima variante preparada após conclusão da sessão
+
+OBSERVAÇÃO
+Todas as inspeções, classificações, relatórios e ferramentas desta plataforma
+são educacionais e não substituem inspeções reais, medições, capacitação,
+procedimentos, documentação oficial ou responsabilidades profissionais.
+
+AUDITORIA VISUAL
+A validação desta rodada cobre estrutura, sintaxe, imports, lógica de serviços,
+assets e carregamento HTTP. Não foi executada auditoria visual automatizada
+com navegador headless neste ambiente.

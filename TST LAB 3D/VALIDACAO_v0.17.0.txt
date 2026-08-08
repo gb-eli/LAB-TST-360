@@ -1,0 +1,85 @@
+TST 360 — VALIDAÇÃO v0.17.0
+Data: 07/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 48 arquivos — sintaxe OK
+- JSON: 26 arquivos — válidos
+- Imports relativos locais: 83 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- GLBs: 105 — glTF 2.0 válidos
+- Setores profissionais: 8 — OK
+- Missões setoriais: 16 — OK
+- Variantes A/B/C: 48 — OK
+- Riscos setoriais base: 64 — OK
+- IDs ativos das variantes referenciam riscos válidos — OK
+
+ALMOXARIFADO 3D
+- `three-scenes-sector-warehouse.js` — sintaxe/import OK
+- `Armazenamento e prateleiras` — factory 3D integrada
+- `Separação e movimentação de pedidos` — factory 3D integrada
+- mapas dos 8 riscos — presentes
+- variantes A/B/C — integradas
+- CharacterRig/CharacterMotion — reutilizados
+- Instancing — racks, prateleiras e caixas repetidas
+
+ASSETS DE ALMOXARIFADO
+- pack `assets/sectors/almoxarifado/g1/` — OK
+- rack LOD0/LOD1 — OK
+- pallet-stack LOD0/LOD1 — OK
+- picking-cart LOD0/LOD1 — OK
+- carton LOD0/LOD1 — OK
+- 8 novos GLBs
+- biblioteca total: 105 GLBs
+
+CAMPUS 3D G8.7
+- CampusHub envia progresso real por setor — OK
+- CampusHub envia lista de setores 3D — OK
+- prédios exibem progresso concluído/total — implementado
+- setores 3D recebem destaque visual — implementado
+- Porto, Saúde, Escritório e Almoxarifado marcados como 3D — OK
+- animação ambiental adaptativa:
+  Eco = 0 veículos
+  Médio = 1 veículo
+  Alto/Ultra = 2 veículos
+- HUD mostra progresso global, setores 3D e instâncias
+
+PERFORMANCE
+- budget `sector-almoxarifado-armazenamento` — presente
+- budget `sector-almoxarifado-separacao-pedidos` — presente
+- budget `campus-3d` — atualizado
+- Auto Quality preservado
+- budgets Porto/Saúde/Escritório anteriores — preservados
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/sectors/sectors.json => 200
+- /js/sectors/sector-hub.js => 200
+- /js/graphics/three-scenes-sector-warehouse.js => 200
+- /js/campus/campus-hub.js => 200
+- /js/campus/three-campus.js => 200
+- /assets/sectors/almoxarifado/g1/manifest.json => 200
+- /assets/sectors/almoxarifado/g1/rack_lod1.glb => 200
+- /data/performance/budgets.json => 200
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 48 variantes setoriais preservadas
+- Porto 3D preservado
+- Hospital 3D preservado
+- Escritório 3D preservado
+- Campus 2D preservado como fallback
+- Central TST, RiskBridge e InspectionSessionService preservados
+- SVG setorial preservado como fallback
+- 3D continua sob demanda
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless.
+As validações realizadas cobrem sintaxe, imports, dados, assets, integração,
+budgets, progresso estrutural do Campus e carregamento HTTP.
+
+USO EDUCACIONAL
+O Almoxarifado 3D é uma simulação didática. Limites de carga, capacidade de
+racks, empilhamento e métodos reais dependem do sistema, material, fabricante,
+processo e avaliação aplicável.

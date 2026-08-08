@@ -1,0 +1,84 @@
+TST 360 — VALIDAÇÃO v0.18.0
+Data: 07/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 50 arquivos — sintaxe OK
+- JSON: 27 arquivos — válidos
+- Imports relativos locais: 90 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- GLBs: 113 — glTF 2.0 válidos
+- Setores profissionais: 8 — OK
+- Missões setoriais: 16 — OK
+- Variantes A/B/C: 48 — OK
+- Riscos setoriais base: 64 — OK
+
+OFICINA / MANUTENÇÃO 3D
+- `three-scenes-sector-workshop.js` — sintaxe/import OK
+- Corte/esmerilhamento — factory 3D integrada
+- Preparação para manutenção — factory 3D integrada
+- riscos das duas missões — mapeados
+- variantes A/B/C — integradas
+- CharacterRig/CharacterMotion — reutilizados
+- Instancing — ferramentas/peças repetidas
+
+ASSETS DE OFICINA
+- pack `assets/sectors/oficina/g1/` — OK
+- workbench LOD0/LOD1 — OK
+- grinder LOD0/LOD1 — OK
+- maintenance-machine LOD0/LOD1 — OK
+- barrier LOD0/LOD1 — OK
+- 8 novos GLBs
+- biblioteca total: 113 GLBs
+
+REGISTRY SETORIAL 3D
+- `js/sectors/sector-3d-registry.js` — sintaxe/import OK
+- Porto — registrado
+- Saúde — registrado
+- Escritório — registrado
+- Almoxarifado — registrado
+- Oficina — registrado
+- SectorHub usa `getSector3DDescriptor()` — OK
+- CampusHub usa `SECTOR_3D_IDS` — OK
+- plano de adapters:
+  Construção → createCanteiro3D — presente
+  Indústria → createIndustria3D — presente
+  Obras Elétricas → createEletricidade3D — presente
+
+PERFORMANCE
+- budget `sector-oficina-esmerilhamento` — presente
+- budget `sector-oficina-manutencao-maquina` — presente
+- budget `campus-3d` — preservado
+- Auto Quality — preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/sectors/sectors.json => 200
+- /js/sectors/sector-hub.js => 200
+- /js/sectors/sector-3d-registry.js => 200
+- /js/graphics/three-scenes-sector-workshop.js => 200
+- /assets/sectors/oficina/g1/manifest.json => 200
+- /assets/sectors/oficina/g1/grinder_lod1.glb => 200
+- /assets/sectors/oficina/g1/maintenance_machine_lod1.glb => 200
+- /js/campus/campus-hub.js => 200
+- /data/performance/budgets.json => 200
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 48 variantes preservadas
+- Porto/Hospital/Escritório/Almoxarifado 3D preservados
+- Campus 2D/3D preservado
+- Central TST, RiskBridge e InspectionSessionService preservados
+- SVG setorial preservado como fallback
+- 3D sob demanda preservado
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless.
+As validações realizadas cobrem sintaxe, imports, dados, assets, registry,
+budgets, integração modular e carregamento HTTP.
+
+USO EDUCACIONAL
+A Oficina 3D treina reconhecimento de risco e análise preventiva. Não fornece
+instruções operacionais para manutenção, retirada de proteção, controle de
+energias ou operação de ferramentas.

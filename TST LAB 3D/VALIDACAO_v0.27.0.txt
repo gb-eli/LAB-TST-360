@@ -1,0 +1,183 @@
+TST 360 — VALIDAÇÃO v0.27.0 / G9.7
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 60 arquivos — sintaxe OK
+- JSON: 32 arquivos — válidos
+- Imports relativos locais: 115 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+- Performance budgets: 25 contextos
+
+SCENARIO ACTIVITY DIRECTOR
+- `js/simulation/scenario-activity-director.js` — sintaxe/import OK
+- perfis disponíveis:
+  - routine
+  - peak
+  - reorganization
+  - intervention
+  - support
+  - emergency
+  - reconfiguration
+  - opening
+- todos os 48 variants setoriais possuem `activityProfile`
+- distribuição validada:
+  - opening: 2
+  - peak: 12
+  - reorganization: 9
+  - routine: 10
+  - intervention: 5
+  - support: 5
+  - reconfiguration: 1
+  - emergency: 4
+
+SEMÂNTICA DOS PERFIS
+- peak em High mantém teto do QualityManager:
+  - população: 4
+  - atividade ambiental: 4
+- routine em High reduz sem ultrapassar o teto:
+  - população: 3
+  - atividade ambiental: 3
+- intervention:
+  - população High reduzida para 1
+  - atividade ambiental High reduzida para 1
+  - process motion = 0
+  - lights > 0
+- emergency:
+  - doors > 1
+  - lights > 1
+  - traffic reduzido
+
+INFERÊNCIA / COMPATIBILIDADE
+- texto contendo `pico` → peak
+- texto contendo `intervenção` → intervention
+- fallback A → routine
+- fallback B → peak
+- fallback C → reorganization
+- variantes antigas sem activityProfile continuam compatíveis
+
+CHARACTER POPULATION
+- `CharacterPopulationManager.settings()` passa pelo diretor
+- `populationPlan(base)` só mantém/reduz count
+- `skinned` nunca ultrapassa o base
+- activeDistance pode ser reduzida
+- QualityManager continua sendo o teto superior
+
+AMBIENT ACTIVITY
+- `AmbientActivityManager.settings()` passa pelo diretor
+- bindings possuem canal
+- canais exercitados:
+  - traffic
+  - process
+  - doors
+  - lights
+- fator por canal multiplica o fator ambiental
+- prioridade, distância e qualidade continuam preservadas
+
+EQUIPMENT MOTION
+- `EquipmentMotionController` aceita activityDirector
+- vibration/rotation/oscillation usam `process`
+- statusLight usa `lights`
+- `intervention` desliga process motion
+- `intervention` preserva lights
+- QualityManager continua participando do fator final
+
+INTEGRAÇÕES 3D
+- Indústria principal — integrada
+- Porto / Pátio — integrado
+- Porto / Doca — integrado
+- Saúde / Apoio — integrado
+- Saúde / Transporte — integrado
+- Oficina / Esmerilhamento — integrado ao EquipmentMotion
+- Oficina / Manutenção — integrado ao EquipmentMotion
+
+OFICINA
+- Esmerilhamento:
+  - A routine
+  - B peak
+  - C reorganization
+- Manutenção de máquina:
+  - A intervention
+  - B intervention
+  - C intervention
+- process motion da manutenção fica zerado pelo diretor
+- indicador luminoso pode permanecer visível
+
+INDÚSTRIA PRINCIPAL
+- A routine
+- B peak
+- C intervention
+
+INSPEÇÃO / RELATÓRIO
+- interface mostra badge `Atividade: ...`
+- RiskEngine recebe activityProfileId/activityProfileLabel
+- sessão salva activityProfileId/activityProfileLabel
+- relatório HTML mostra `Estado ambiental`
+- Central TST exibe o estado ambiental da sessão
+- smoke do relatório:
+  - variante presente — OK
+  - perfil presente — OK
+  - rótulo Estado ambiental — OK
+
+EVENTBUS
+- criação do diretor emite:
+  - `scenario:activity-profile`
+- payload contém módulo/setor/missão/variant/profile quando disponível
+
+PERFORMANCE
+- nenhum GLB novo
+- biblioteca permanece em 125 GLBs
+- budgets G9.6 preservados e versionados 0.27.0
+- diretor nunca eleva count acima do teto do perfil gráfico
+- Auto Quality preservado
+- Character Population preservado
+- Ambient Activity preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/sectors/sectors.json => 200
+- /js/simulation/scenario-activity-director.js => 200
+- /js/simulation/scenario-variant-manager.js => 200
+- /js/graphics/character-population.js => 200
+- /js/graphics/ambient-activity-manager.js => 200
+- /js/graphics/equipment-motion.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-port.js => 200
+- /js/graphics/three-scenes-sector-health.js => 200
+- /js/graphics/three-scenes-sector-workshop.js => 200
+- /js/ui/inspection-lab.js => 200
+- /js/tools/inspection-session-service.js => 200
+- /js/tools/tst-toolkit.js => 200
+- /docs/SCENARIO_ACTIVITY_DIRECTOR_v0.27.md => 200
+- /docs/SCENARIO_ACTIVITY_PROFILES_v0.27.md => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, GLBs, perfis,
+inferência, limites de qualidade, comportamento intervention/peak, integração
+com população/ambiente/equipamentos, relatório, Central TST e HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- RiskEngine/RiskBridge preservados
+- InspectionSessionService preservado
+- Character Population preservado
+- Character Pack G2.1/G2/G1 preservados
+- CharacterRig procedural preservado
+- Campus 2D/3D preservado
+- Central TST preservada
+- fallback 2D/SVG preservado
+
+IMPORTANTE
+Os perfis de atividade são parâmetros de apresentação didática. Eles não
+representam velocidade, produtividade, capacidade, dimensionamento de equipe,
+procedimento operacional, controle real de máquinas ou conformidade normativa.

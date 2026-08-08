@@ -1,0 +1,126 @@
+TST 360 — VALIDAÇÃO v0.24.0 / G9.4
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 57 arquivos — sintaxe OK
+- JSON: 32 arquivos — válidos
+- Imports relativos locais: 101 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+- Performance budgets: 25 contextos
+
+CHARACTER PACK G2.1
+- `assets/characters/g21/manifest.json` — válido
+- Worker LOD0 — válido
+- Worker LOD1 — válido
+- TST LOD0 — válido
+- TST LOD1 — válido
+- GLBs G2.1: 4
+- rig: TST360HumanoidG2
+- joints: 17
+- geometryStyle: rounded-low-poly
+- AnimationClips: Idle, Walk, Inspect, Reach, Crouch, Seated, Climb
+
+GEOMETRIA G2.1
+- worker_lod0: 708 vértices / 740 triângulos / ~61 KB
+- worker_lod1: 1256 vértices / 1404 triângulos / ~90 KB
+- tst_lod0: 810 vértices / 836 triângulos / ~67 KB
+- tst_lod1: 1406 vértices / 1548 triângulos / ~98 KB
+- alvo low-poly: todos abaixo de 2000 triângulos — OK
+- normals unitárias em amostras — OK
+- JOINTS_0 válidos (<17) — OK
+- WEIGHTS_0 somam 1 — OK
+
+SILHUETA
+- cabeça elipsoidal — implementada
+- mãos elipsoidais — implementadas
+- braços/antebraços cilíndricos — implementados
+- coxas/canelas cilíndricas — implementadas
+- torso/pelve com seção elíptica — implementados
+- capacete arredondado + aba — implementado
+- LOD0 com menos segmentos/rings — implementado
+- LOD1 com mais segmentos/rings — implementado
+
+FALLBACK
+- defaultPack: g21
+- candidate 1: g21 / 17 joints / rounded-low-poly
+- candidate 2: g2 / 17 joints / block-low-poly
+- candidate 3: g1 / 7 joints
+- fallback final: CharacterRig procedural
+- cadeia validada: G2.1 → G2 → G1 → procedural
+
+CHARACTER APPEARANCE
+- `js/graphics/character-appearance.js` — sintaxe/import OK
+- `data/characters/appearances.json` — válido
+- perfis: standard, warm, deep, cool
+- materiais do clone são duplicados antes da customização
+- teste de independência:
+  shared material permaneceu inalterado
+  personagem A recebeu cor própria
+  personagem B recebeu cor própria
+  materiais A/B não compartilham a mesma instância — OK
+- CharacterController informa appearanceId — implementado
+- CharacterController informa geometryStyle — implementado
+
+CENAS PILOTO
+- Indústria — Character Pack + aparência
+- Espaço Confinado — Character Pack + aparência
+- Oficina — Character Pack + aparência
+- Escritório — Character Pack + aparência
+- Saúde — Character Pack + aparência
+- quatro perfis visuais exercitados em cenas — OK
+
+PERFORMANCE
+- nenhum PNG/JPG/textura externa adicionado ao G2.1
+- budgets das cenas skinned recebem margem adicional de triângulos
+- Eco continua procedural
+- Médio usa G2.1 LOD0
+- Alto/Ultra usam G2.1 LOD1
+- Auto Quality preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/characters/packs.json => 200
+- /data/characters/appearances.json => 200
+- /assets/characters/g21/manifest.json => 200
+- /assets/characters/g21/worker_lod0.glb => 200
+- /assets/characters/g21/worker_lod1.glb => 200
+- /assets/characters/g21/tst_lod0.glb => 200
+- /assets/characters/g21/tst_lod1.glb => 200
+- /js/graphics/character-pack-registry.js => 200
+- /js/graphics/character-appearance.js => 200
+- /js/graphics/character-controller.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-workshop.js => 200
+- /js/graphics/three-scenes-sector-office.js => 200
+- /js/graphics/three-scenes-sector-health.js => 200
+- /data/performance/budgets.json => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, estrutura glTF,
+skin/weights/normais, complexidade geométrica, cadeia de fallback, isolamento
+de materiais, integração de cenas, budgets e carregamento HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- Character Pack G2 preservado
+- Character Pack G1 preservado
+- CharacterRig procedural preservado
+- Campus e Central TST preservados
+- G9 RealismManager preservado
+- fallback 2D/SVG preservado
+
+IMPORTANTE
+G2.1 melhora a silhueta visual e diferenciação de personagens, mas permanece
+low-poly. Não representa humano fotorealista, identidade de pessoa real,
+mocap, biometria, biomecânica validada ou ergonomia medida.

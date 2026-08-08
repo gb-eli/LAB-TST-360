@@ -1,0 +1,187 @@
+TST 360 — VALIDAÇÃO v0.29.0 / G9.9
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 65 arquivos — sintaxe OK
+- JSON: 65 arquivos — válidos
+- Imports relativos locais: 121 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D/360: 8/8
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+
+BIBLIOTECA VISUAL
+- experiências principais: 24
+- panoramas: 8
+- objetos 3D: 8
+- links para missões 3D: 8
+- nenhum GLB novo
+
+PANORAMA GRAPH G9.9
+- arquitetura: lazy-node-graph
+- PanoramaGraphLoader — implementado
+- 8 índices panorâmicos setoriais
+- 16 nodes independentes
+- 2 pontos de observação por setor
+- 80 hotspots
+- 5 hotspots por node
+- todos os defaultNode válidos
+- todos os paths de node válidos
+
+AÇÕES DOS 80 HOTSPOTS
+- notas simples: 32
+- transições entre nodes: 16
+- links para objeto 3D: 16
+- links para missão 3D: 16
+- todas as ações `node` apontam para node existente
+- todas as ações `experience` apontam para experiência existente no setor
+
+LAZY LOADING — SMOKE TEST
+Teste executado com PanoramaGraphLoader e AssetProvider simulado:
+1. graph() → 1 requisição
+2. abrir node padrão → total 2 requisições
+3. node não visitado permanece fora do cache
+4. abrir segundo node → total 3 requisições
+5. nodesCached passa de 1 para 2
+
+Resultado:
+- segunda zona não é carregada antes de ser visitada — OK
+
+PANORAMA RENDERER
+- buildPanoramaScene validado para:
+  - construction
+  - industry
+  - port
+  - health
+  - office
+  - warehouse
+  - workshop
+  - electrical
+- primary e secondary renderizados em smoke test Node
+- buildPanoramaForeground validado nos 8 temas
+- panorama continua sem importar Three.js
+
+PROFUNDIDADE VISUAL
+Camadas implementadas:
+1. atmosfera
+2. cena base
+3. foreground com parallax leve
+4. hotspots/UI acima da cena
+
+Parallax:
+- base = offset
+- foreground ≈ offset × 1.045
+- clamp panorâmico preservado
+
+NAVEGAÇÃO
+- barra `Pontos de observação` — implementada
+- node ativo destacado — implementado
+- transição por botão — implementada
+- transição por hotspot — implementada
+- loading overlay — implementado
+- fade durante troca — implementado
+- startOffset independente por node — implementado
+- título/descrição atualizados por node — implementado
+
+INTEGRAÇÃO COM OBJETO 3D / MISSÃO
+- hotspot de objeto → action `experience` → EnvironmentExperienceHub
+- hotspot de missão → action `experience` → EnvironmentExperienceHub
+- ExperienceHub mantém coordenação e lazy import
+- ObjectFocusViewer continua independente
+- SectorHub continua responsável pelas missões/RiskEngine
+- nenhuma lógica de missão foi duplicada dentro do panorama
+
+PONTOS DE OBSERVAÇÃO
+Construção:
+- Frente de serviço
+- Zona de altura e içamento
+
+Indústria:
+- Linha de produção
+- Logística interna
+
+Porto:
+- Pátio de contêineres
+- Doca de carregamento
+
+Saúde:
+- Apoio hospitalar
+- Transporte interno
+
+Escritório:
+- Postos de trabalho
+- Circulação e emergência
+
+Almoxarifado:
+- Área de armazenagem
+- Separação de pedidos
+
+Oficina:
+- Bancada e esmerilhamento
+- Área de manutenção
+
+Obras Elétricas:
+- Preparação da área
+- Instalação temporária
+
+RESPONSIVIDADE / APRESENTAÇÃO
+- barra de nodes rolável no mobile
+- hotspots especiais possuem diferenciação visual
+- ação do hotspot aparece no painel inferior antes de abrir
+- Tela de apresentação preservada
+- mesma ferramenta para qualquer usuário
+- nenhuma separação professor/aluno criada
+
+HTTP LOCAL — 19 ROTAS
+- / => 200
+- /version.json => 200
+- /data/environments/index.json => 200
+- /data/environments/porto-logistica.json => 200
+- /data/environments/porto-logistica/panorama/index.json => 200
+- /data/environments/porto-logistica/panorama/patio.json => 200
+- /data/environments/porto-logistica/panorama/doca.json => 200
+- /data/environments/saude/panorama/index.json => 200
+- /data/environments/oficina/panorama/manutencao.json => 200
+- /js/experiences/environment-experience-registry.js => 200
+- /js/experiences/environment-experience-hub.js => 200
+- /js/experiences/panorama-graph-loader.js => 200
+- /js/experiences/panorama360-viewer.js => 200
+- /js/experiences/object-focus-viewer.js => 200
+- /js/sectors/sector-hub.js => 200
+- /js/campus/campus-hub.js => 200
+- /css/labs.css => 200
+- /docs/PANORAMA_GRAPH_v0.29.md => 200
+- /docs/PANORAMA_DEPTH_LINKS_v0.29.md => 200
+
+AUDITORIA VISUAL AUTOMATIZADA
+Foi tentada navegação da aplicação com Chromium headless por servidor HTTP local.
+O Chromium deste ambiente bloqueou o acesso a sites locais por política da
+organização, exibindo:
+`127.0.0.1 is blocked — Your organization doesn't allow you to view this site`.
+
+Por isso, a auditoria visual interativa completa NÃO foi marcada como aprovada.
+A limitação é do navegador do ambiente de execução, não uma falha HTTP da
+aplicação: as 19 rotas locais acima responderam 200 via cliente HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8 setores preservados
+- 16 missões / 48 variantes preservadas
+- 8/8 setores 3D/360 preservados
+- Central TST preservada
+- RiskEngine/RiskBridge preservados
+- Scenario Activity Director preservado
+- Character Population preservado
+- Character Pack G2.1/G2/G1 preservados
+- fallback procedural preservado
+- panoramas G9.8 continuam compatíveis via modo legacy do viewer
+
+IMPORTANTE
+Os panoramas continuam sendo representações didáticas procedurais.
+O parallax e as zonas múltiplas aumentam a profundidade de exploração, mas não
+devem ser descritos como fotografia 360, escaneamento, digital twin,
+levantamento métrico ou representação operacional certificada.

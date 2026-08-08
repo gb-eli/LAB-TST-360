@@ -1,0 +1,155 @@
+TST 360 — VALIDAÇÃO v0.37.0 / G10.7
+Data: 08/08/2026
+
+RESULTADO GLOBAL
+- erros encontrados: 0
+- JavaScript: 77 arquivos — sintaxe OK
+- JSON: 77 arquivos — válidos
+- imports relativos locais: 139 — caminhos OK
+- GLBs: 157 — glTF 2.0 válidos
+- WebP: 48 — preservados
+- laboratórios principais: 8
+- setores profissionais: 8
+- missões setoriais: 16
+- variantes: 48
+- riscos setoriais base: 64
+- performance budgets: 25 contextos
+
+G10.7 — PACK CENOGRÁFICO EXCLUSIVO
+- assets exclusivos: 16
+- LODs por asset: 2
+- novos GLBs: 32
+- peso dos novos GLBs: 85.6 KB
+- GLBs single-mesh: 32/32
+- triângulos somados dos 32 arquivos: 2976
+- maior LOD individual: 312 triângulos
+- maior arquivo individual: 6.6 KB
+
+SETORES / PROPS
+Construção:
+- pilha de agregado
+- caçamba cenográfica
+
+Indústria:
+- tote de material
+- coluna utilitária
+
+Porto:
+- cabeço de amarração cenográfico
+- luminária de cais
+
+Saúde:
+- carrinho de roupa
+- biombo
+
+Escritório:
+- jardineira
+- móvel com impressora
+
+Almoxarifado:
+- tote plástico
+- suporte de identificação
+
+Oficina:
+- baú de ferramentas
+- gaveteiro de peças
+
+Elétrica:
+- carretel cenográfico
+- marcador de área
+
+PLANO DE QUALIDADE
+- Eco: 0 tipos / repeatCount 1
+- Medium: 0 tipos / repeatCount 1
+- High: 1 tipo / repeatCount 2
+- Ultra: 2 tipos / repeatCount 3
+
+INSTANCING
+- `THREE.InstancedMesh` implementado.
+- props repetíveis usam um único geometry/material.
+- todos os GLBs repetíveis foram validados como single-mesh.
+- source GLB permanece retido no AssetManager enquanto a instância usa sua geometry/material.
+
+LOD
+- lod0: Eco/Medium no manifest
+- lod1: High/Ultra no manifest
+- G10.7 só ativa em High/Ultra.
+- nenhuma pré-carga de Scenic Prop em Eco/Medium.
+
+SEGURANÇA SEMÂNTICA
+Flags:
+- tstDecorative
+- tstScenicProp
+- tstContextOnly
+- tstIgnoreRisk
+
+Scenic Props:
+- não entram no RiskEngine
+- não entram nos pickables
+- não viram hotspot
+- não viram evidência
+- não viram relatório
+
+COERÊNCIA
+- ObjectFocusViewer: contextProps:false + scenicProps:false
+- Incêndio/Evacuação: contextProps:false + scenicProps:false
+- evita decoração elétrica fora de contexto na cena de evacuação.
+
+BUDGETS
+- 20 contextos receberam headroom G10.7.
+- alterações somente em High/Ultra.
+- Eco e Medium não foram ampliados.
+- Campus não foi ampliado.
+
+ASSETS TOTAIS
+- GLB antes: 125
+- GLB agora: 157
+- WebP: 48
+- aumento GLB real: ~85.6 KB
+
+HTTP LOCAL — 18 ROTAS
+- / => 200
+- /version.json => 200
+- /data/performance/budgets.json => 200
+- /assets/scenery/g107/manifest.json => 200
+- /assets/scenery/g107/office-planter_lod1.glb => 200
+- /assets/scenery/g107/port-mooring-bollard_lod1.glb => 200
+- /js/graphics/scenic-prop-registry.js => 200
+- /js/graphics/scenic-prop-manager.js => 200
+- /js/graphics/three-runtime.js => 200
+- /js/graphics/scene-metrics.js => 200
+- /js/graphics/quality-manager.js => 200
+- /js/graphics/context-prop-manager.js => 200
+- /js/graphics/asset-manager.js => 200
+- /js/graphics/three-scenes-g6.js => 200
+- /js/experiences/object-focus-viewer.js => 200
+- /docs/ARQUITETURA_v0.37.md => 200
+- /docs/SCENIC_PROPS_v0.37.md => 200
+- /docs/SCENIC_PROP_PERFORMANCE_v0.37.md => 200
+
+AUDITORIA VISUAL INTERATIVA
+Não foi marcada como aprovada nesta rodada.
+
+A validação realizada cobre:
+- sintaxe
+- imports
+- JSON
+- GLB
+- manifests
+- LODs
+- número de meshes
+- triângulos
+- peso
+- qualidade
+- instancing estrutural
+- budgets
+- isolamento semântico
+- HTTP
+
+Após publicar no GitHub Pages, recomenda-se validar visualmente High/Ultra
+em celular potente, desktop e projetor, especialmente posicionamento periférico
+dos props e leitura dos hotspots/riscos principais.
+
+RESULTADO FINAL
+A G10.7 aumenta a identidade visual dos setores com uma biblioteca cenográfica
+exclusiva muito pequena, mantendo Eco/Medium livres desse custo.

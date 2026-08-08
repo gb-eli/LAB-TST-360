@@ -1,0 +1,210 @@
+TST 360 — VALIDAÇÃO v0.31.0 / G10.1
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 68 arquivos — sintaxe OK
+- JSON: 67 arquivos — válidos
+- Imports relativos locais: 127 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — preservados/válidos
+- WebP G10: 48 — preservados e 2:1
+
+PANORAMAS
+- nodes panorâmicos: 16
+- hotspots: 80
+- nodes com image360: 16
+- setores com autoria habilitada: 8/8
+- fallback procedural preservado
+- PanoramaGraphLoader preservado
+- G10 hybrid equirectangular runtime preservado
+
+NOVOS ARQUIVOS G10.1
+- `js/experiences/panorama-authoring-model.js`
+- `js/experiences/panorama-authoring-tool.js`
+- `docs/PANORAMA_AUTHORING_v0.31.md`
+- `docs/PANORAMA_CALIBRATION_FORMAT_v0.31.md`
+- `docs/PANORAMA_PRIVACY_CHECKLIST_v0.31.md`
+- `docs/ARQUITETURA_v0.31.md`
+
+PANORAMA AUTHORING MODEL
+Testes executados:
+- 2400×1200 → válido 2:1
+- 1920×1080 → inválido para equiretangular 2:1
+- heading 270° → startOffset 56,25
+- startOffset 56,25 → heading 270°
+- hotspot legado x/y → imageX/imageY — OK
+- movimento em imageX/imageY preserva x/y legado — OK
+- criação de hotspot novo — OK
+- action node — OK
+- action object — OK
+- action mission — OK
+- remoção de action para note — OK
+- export normaliza todos os hotspots com imageX/imageY — OK
+- export usa `sourceType: external-photo` — OK
+
+TIERS DE AUTORIA
+- Medium: 1024×512
+- High: 1600×800
+- Ultra: 2400×1200
+
+Fallback de runtime preservado:
+- Eco → nenhum tier / procedural
+- Medium → medium
+- High → high → medium
+- Ultra → ultra → high → medium
+
+COORDENADAS G10.1
+Contrato:
+- `x/y` → preservados para renderer procedural
+- `imageX/imageY` → coordenadas equiretangulares calibradas
+- EquirectangularPanoramaRuntime prioriza imageX/imageY
+- nodes antigos sem imageX/imageY continuam usando x/y + hotspotTransform
+
+PANORAMA AUTHORING TOOL
+Recursos verificados estruturalmente:
+- seletor de node
+- input local `type=file`
+- Object URL
+- revogação de Object URL
+- validação de proporção
+- orientação inicial 0–359°
+- clique na imagem para adicionar hotspot
+- seleção de hotspot
+- edição de label
+- edição de note
+- edição de category
+- edição X/Y
+- exclusão
+- ação note
+- ação node
+- ação object
+- ação mission
+- preview 360
+- JSON export
+- Canvas export
+- WebP export
+- Medium/High/Ultra export
+- checklist de privacidade
+
+PRIVACIDADE / REDE
+Checagem estática no AuthoringTool:
+- XMLHttpRequest: ausente
+- POST: ausente
+- FormData para upload: ausente
+- sendBeacon: ausente
+- nenhuma API de upload adicionada
+
+Fluxo local:
+File
+→ URL.createObjectURL
+→ imagem/preview
+→ Canvas
+→ Blob
+→ download local
+
+PREVIEW 360
+- reutiliza EquirectangularPanoramaRuntime
+- usa contexto de qualidade próprio para autoria
+- não modifica o QualityManager global
+- local Object URL é usado como textura
+- hotspots calibrados usam imageX/imageY
+- ao sair, runtime é disposed e Object URL revogado
+
+ENVIRONMENT EXPERIENCE HUB
+- botão `Calibrar / criar panorama 360`
+- openAuthoring — implementado
+- closeAuthoring — implementado
+- lazy import do PanoramaAuthoringTool
+- retorno à biblioteca visual preservado
+- ferramenta acessível sem role professor/aluno
+
+RESPONSIVIDADE
+CSS G10.1 inclui:
+- layout desktop em duas colunas
+- toolbar adaptativa
+- painel lateral
+- imagem 2:1 exata
+- markers responsivos
+- preview responsivo
+- mobile em coluna única
+- export actions adaptativas
+
+HTTP LOCAL — 21 ROTAS
+- / => 200
+- /version.json => 200
+- /data/environments/index.json => 200
+- /data/environments/porto-logistica.json => 200
+- /data/environments/porto-logistica/panorama/patio.json => 200
+- /data/performance/panorama-budgets.json => 200
+- /assets/panoramas/g10/manifest.json => 200
+- /assets/panoramas/g10/porto-logistica/patio_high.webp => 200
+- /js/experiences/environment-experience-hub.js => 200
+- /js/experiences/panorama-authoring-model.js => 200
+- /js/experiences/panorama-authoring-tool.js => 200
+- /js/experiences/panorama360-viewer.js => 200
+- /js/experiences/equirectangular-panorama-runtime.js => 200
+- /js/experiences/panorama-graph-loader.js => 200
+- /js/sectors/sector-hub.js => 200
+- /js/campus/campus-hub.js => 200
+- /css/labs.css => 200
+- /docs/ARQUITETURA_v0.31.md => 200
+- /docs/PANORAMA_AUTHORING_v0.31.md => 200
+- /docs/PANORAMA_CALIBRATION_FORMAT_v0.31.md => 200
+- /docs/PANORAMA_PRIVACY_CHECKLIST_v0.31.md => 200
+
+AUDITORIA VISUAL INTERATIVA
+Não foi marcada como aprovada nesta rodada.
+
+A validação concluída cobre:
+- sintaxe
+- imports
+- JSON
+- GLB
+- WebP
+- modelo de calibração
+- compatibilidade de hotspots
+- segurança local do authoring
+- integração estrutural
+- rotas HTTP
+
+A inspeção visual completa em navegador real continua recomendada após subir no
+GitHub Pages, principalmente para testar:
+- pointer/touch na imagem plana
+- preview WebGL 360
+- múltiplos downloads WebP
+- permissões de download do navegador
+- responsividade em projetor e celular
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8 setores preservados
+- 16 missões / 48 variantes preservadas
+- 16 nodes / 80 hotspots preservados
+- 48 WebP G10 preservados
+- 125 GLBs preservados
+- Central TST preservada
+- RiskEngine/RiskBridge preservados
+- Scenario Activity Director preservado
+- Character Population preservado
+- Character Pack G2.1/G2/G1 preservados
+- Panorama procedural preservado
+- Panorama equiretangular G10 preservado
+- mesma ferramenta para qualquer usuário; sem roles
+
+IMPORTANTE
+A ferramenta prepara arquivos, mas NÃO publica automaticamente fotos no GitHub.
+Antes de publicar fotografia real, revisar:
+- autorização/direitos
+- rostos
+- placas
+- documentos
+- crachás
+- telas e dados visíveis
+
+RESULTADO FINAL
+- erros encontrados na validação global: 0

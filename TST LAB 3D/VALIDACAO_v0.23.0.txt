@@ -1,0 +1,151 @@
+TST 360 — VALIDAÇÃO v0.23.0 / G9.3
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 56 arquivos — sintaxe OK
+- JSON: 30 arquivos — válidos
+- Imports relativos locais: 100 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 121 — glTF 2.0 válidos
+- Character G1 GLBs: 4 — preservados
+- Character G2 GLBs: 4 — novos
+- Performance budgets: 25 contextos
+
+CHARACTER PACK G2
+- `assets/characters/g2/manifest.json` — válido
+- worker_lod0.glb — válido
+- worker_lod1.glb — válido
+- tst_lod0.glb — válido
+- tst_lod1.glb — válido
+- rig: TST360HumanoidG2
+- joints por GLB: 17
+
+HIERARQUIA G2
+- Hips
+- Spine
+- Chest
+- Neck
+- Head
+- LeftUpperArm
+- LeftForeArm
+- LeftHand
+- RightUpperArm
+- RightForeArm
+- RightHand
+- LeftThigh
+- LeftShin
+- LeftFoot
+- RightThigh
+- RightShin
+- RightFoot
+- todos os 17 joints são alcançáveis a partir do skeleton root — OK
+
+SKIN / WEIGHTS
+- 1 skin por GLB G2
+- inverseBindMatrices: MAT4 / count 17
+- POSITION — presente
+- NORMAL — presente
+- JOINTS_0 — presente
+- WEIGHTS_0 — presente
+- joint indices < 17 — OK
+- pesos por vértice somam 1 — OK
+
+ANIMATION CLIPS
+Cada G2 contém exatamente:
+- Idle
+- Walk
+- Inspect
+- Reach
+- Crouch
+- Seated
+- Climb
+
+- animation channels apontam somente para joints do skin — OK
+- input/output key counts — coerentes
+- quaternions de rotação — normalizados
+- Walk usa braços, antebraços, coxas, canelas, pés, tórax e quadril
+- Crouch/Seated usam cadeia de membros inferiores ampliada
+
+CHARACTER REGISTRY
+- G1 registrado — OK
+- G2 registrado — OK
+- defaultPack: g2
+- G2 jointCount: 17
+- G2 fallbackPack: g1
+- `characterAsset('worker')` gera candidate G2 seguido de G1
+- cadeia esperada: G2 → G1 → procedural
+
+CHARACTER CONTROLLER
+- `characterAssetCandidates()` — implementado
+- candidates sem duplicatas — implementado
+- `info()` informa packId, rig, jointCount e fallbackReason
+- primary G2 — suportado
+- fallback G1 — suportado
+- fallback procedural — preservado
+- motivos:
+  - quality-profile
+  - asset-pack-fallback
+  - asset-chain-exhausted
+- Eco interrompe antes do carregamento GLB
+
+MIGRAÇÕES G2
+- Indústria continua usando Character Pack via registry
+- Espaço Confinado continua usando Character Pack via registry
+- Oficina continua usando Character Pack via registry
+- Escritório / postos: worker + TST migrados
+- Escritório / emergência: worker + TST migrados
+- Saúde / apoio: worker + TST migrados
+- Saúde / transporte: worker + TST migrados
+- Escritório e Saúde sem chamadas diretas a createCharacterRig/createCharacterMotion — OK
+
+PERFORMANCE
+- budgets de cenas G2 piloto recalibrados
+- Saúde/Escritório recebem margem para dois SkinnedMesh simultâneos
+- Eco permanece procedural
+- nenhum arquivo de textura externo no G2
+- Auto Quality preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/characters/packs.json => 200
+- /assets/characters/g1/manifest.json => 200
+- /assets/characters/g2/manifest.json => 200
+- /assets/characters/g2/worker_lod0.glb => 200
+- /assets/characters/g2/worker_lod1.glb => 200
+- /assets/characters/g2/tst_lod0.glb => 200
+- /assets/characters/g2/tst_lod1.glb => 200
+- /js/graphics/character-pack-registry.js => 200
+- /js/graphics/character-controller.js => 200
+- /js/graphics/three-scenes-sector-office.js => 200
+- /js/graphics/three-scenes-sector-health.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-workshop.js => 200
+- /data/performance/budgets.json => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, glTF, skin,
+hierarquia, weights, AnimationClips, fallback chain, integração de cenas,
+budgets e carregamento HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- Campus 2D/3D preservado
+- Central TST preservada
+- G9 RealismManager preservado
+- Character Pack G1 preservado
+- CharacterRig procedural preservado como fallback final
+
+IMPORTANTE
+G2 melhora articulação real do skeleton e dos AnimationClips, mas continua
+low-poly. Não representa mocap, biomecânica validada, ergonomia medida ou
+humano fotorealista.

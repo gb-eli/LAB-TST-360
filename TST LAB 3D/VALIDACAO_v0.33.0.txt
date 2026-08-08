@@ -1,0 +1,122 @@
+TST 360 — VALIDAÇÃO v0.33.0 / G10.3
+Data: 08/08/2026
+
+RESULTADO GLOBAL
+- erros: 0
+- JavaScript: 71
+- JSON: 76
+- imports relativos: 132
+- GLBs: 125
+- WebP: 48
+- laboratórios: 8
+- setores: 8
+- missões: 16
+- variantes: 48
+- riscos setoriais: 64
+
+TOURS RAMIFICADOS
+- tours: 8
+- etapas: 32
+- escolhas de rota: 16
+- 2 rotas primárias por setor
+- modo: branch-and-converge
+
+ROTAS
+Rota A:
+entrada → equipamento → segunda-zona → missão
+
+Rota B:
+entrada → segunda-zona → equipamento → missão
+
+SMOKE TEST DAS DUAS ROTAS
+- antes da decisão: nextStepId = null
+- decisão salva em progress.decisions — OK
+- historyStepIds — OK
+- Rota A calculada corretamente — OK
+- Rota B calculada corretamente — OK
+- próxima etapa acompanha escolha — OK
+- anterior usa histórico — OK
+- convergência após as duas perspectivas — OK
+- tela da missão permanece 75% — OK
+- abrir missão chega a 100% — OK
+
+NOVO ROUTE DIRECTOR
+Arquivo:
+`js/experiences/visual-tour-route-director.js`
+
+Validado:
+- choiceById
+- choiceForTarget
+- decisionFor
+- choicesFor
+- suggestedPath
+- nextStepId
+- previousStepId
+- routeEdges
+- state
+
+PROGRESS SERVICE
+Novos dados:
+- decisions
+- historyStepIds
+
+Migração:
+- progresso v0.32 sem decisions continua válido
+- se o currentStep salvo já estiver em um ramo, a escolha pode ser inferida
+
+MINI-MAPA
+- antes da escolha: mostra os dois ramos
+- depois: destaca rota escolhida
+- ramo não escolhido fica visualmente secundário
+- etapas continuam revisitáveis
+
+UI
+- painel "Por onde você quer continuar?"
+- duas escolhas por setor
+- botão Trocar ordem
+- Anterior na rota
+- Próximo na rota
+- card da biblioteca mostra 2 rotas
+- card sinaliza decisão salva
+
+LAZY LOADING
+Preservado:
+- tour JSON somente no clique
+- runtime por dynamic import
+- panorama por node/tier
+- objeto por GLB/LOD
+- missão somente no launch
+- nenhuma pré-carga da rota alternativa
+
+ASSETS
+- GLBs novos: 0
+- WebP novos: 0
+- total GLB permanece 125
+- total WebP permanece 48
+
+HTTP LOCAL
+14 rotas críticas responderam 200:
+- /
+- /version.json
+- /data/tours/index.json
+- /data/tours/porto-logistica.json
+- /data/environments/porto-logistica.json
+- /js/experiences/environment-visual-tour.js
+- /js/experiences/visual-tour-route-director.js
+- /js/experiences/visual-tour-progress-service.js
+- /js/experiences/environment-experience-hub.js
+- /js/experiences/panorama360-viewer.js
+- /js/campus/campus-hub.js
+- /css/labs.css
+- /docs/BRANCHING_TOURS_v0.33.md
+- /docs/TOUR_ROUTING_v0.33.md
+
+AUDITORIA VISUAL INTERATIVA
+Não foi marcada como aprovada nesta rodada. A validação cobre sintaxe,
+referências, rotas, progresso, lazy loading, assets e HTTP. Recomenda-se testar
+no GitHub Pages a interação touch, mudança de rota e mini-mapa.
+
+SEGURANÇA PEDAGÓGICA
+A decisão altera apenas a ordem da investigação visual didática.
+Não representa prioridade operacional, procedimento oficial de inspeção,
+sequência normativa ou capacitação certificada.

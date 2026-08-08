@@ -1,0 +1,96 @@
+TST 360 — VALIDAÇÃO v0.20.0 / G9.0
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 53 arquivos — sintaxe OK
+- JSON: 27 arquivos — válidos
+- Imports relativos locais: 96 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 113 — glTF 2.0 válidos
+
+CAMADA G9
+- `js/graphics/material-library.js` — sintaxe/import OK
+- `js/graphics/realism-manager.js` — sintaxe/import OK
+- RealismManager integrado ao ThreeViewport — OK
+- ACES tone mapping global — presente
+- microtextura procedural de piso Alto/Ultra — implementada
+- anisotropia adaptativa — implementada
+- hooks de qualidade dos personagens — implementados
+
+ILUMINAÇÃO E SOMBRAS
+- shadow map adaptativo 512/1024/1536/2048 — implementado
+- directional shadow bounds — implementados
+- shadow normalBias — implementado
+- shadow radius por qualidade — implementado
+- fill light adaptativa — implementada
+- rim light desligada/reduzida em perfis menores — implementada
+
+PERSONAGENS
+- contact shadow — implementada
+- contact shadow desligada no Eco — implementado
+- micro respiração em idle/inspect — implementada
+- micro movimento de olhar — implementado
+- cast/receive shadow adaptativo — implementado
+- detalhe secundário reduzido no Eco — implementado
+- personagens continuam procedurais articulados; humano GLB/SkinnedMesh profissional NÃO é reivindicado nesta versão
+
+EFEITOS
+- EffectsManager refatorado — OK
+- Smoke usa capacidade máxima + drawRange dinâmico — OK
+- Sparks usa capacidade máxima + drawRange dinâmico — OK
+- RoutePulse altera bolas visíveis conforme qualidade — OK
+- Beacon reduz intensidade no Eco/Médio — OK
+- efeitos respondem à qualidade atual sem reconstrução completa da cena
+
+QUALITY PROFILES
+- eco: realism/contactShadows/materialDetail definidos
+- medium: realism/contactShadows/materialDetail definidos
+- high: realism/contactShadows/materialDetail definidos
+- ultra: realism/contactShadows/materialDetail definidos
+
+PERFORMANCE
+- Performance Budgets: 25 contextos
+- budgets Alto/Ultra receberam +2 de margem em maxTextures para mapas procedurais
+- SceneMetrics preservado
+- Auto Quality preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /js/graphics/three-runtime.js => 200
+- /js/graphics/material-library.js => 200
+- /js/graphics/realism-manager.js => 200
+- /js/graphics/environment-manager.js => 200
+- /js/graphics/character-rig.js => 200
+- /js/graphics/effects-manager.js => 200
+- /js/graphics/quality-manager.js => 200
+- /js/sectors/sector-3d-registry.js => 200
+- /data/performance/budgets.json => 200
+- /assets/sectors/oficina/g1/grinder_lod1.glb => 200
+
+AUDITORIA VISUAL AUTOMATIZADA
+Foi feita uma tentativa com Chromium headless.
+O processo excedeu o limite de 15 segundos deste ambiente e foi encerrado.
+Nenhum screenshot foi considerado validado.
+Portanto não é afirmado que uma auditoria visual automatizada completa passou.
+
+COMPATIBILIDADE
+- GitHub Pages / front-end puro preservado
+- 113 GLBs preservados
+- 8/8 setores 3D preservados
+- Semantic Adapters preservados
+- Campus 2D/3D preservado
+- Central TST preservada
+- RiskEngine / RiskBridge preservados
+- InspectionSessionService preservado
+- fallback SVG/2D preservado
+- 3D continua sob demanda
+
+USO EDUCACIONAL
+G9 melhora apresentação visual e percepção espacial. Não transforma as cenas em
+modelos de engenharia, medição, física certificada ou instrução operacional.

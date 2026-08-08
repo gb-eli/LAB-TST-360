@@ -1,0 +1,161 @@
+TST 360 — VALIDAÇÃO v0.28.0 / G9.8
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 64 arquivos — sintaxe OK
+- JSON: 41 arquivos — válidos
+- Imports relativos locais: 120 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D/360: 8/8
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+
+ENVIRONMENT EXPERIENCE REGISTRY
+- `js/experiences/environment-experience-registry.js` — sintaxe/import OK
+- `data/environments/index.json` — válido
+- política: sector-on-demand
+- 8 arquivos de ambiente setorial
+- cache somente dos setores realmente abertos
+
+EXPERIÊNCIAS VISUAIS
+- total: 24
+- panoramas 360: 8
+- objetos 3D: 8
+- atalhos para missões 3D: 8
+- 3 experiências por setor — OK
+- 40 hotspots de panorama — 5 por setor
+
+PANORAMA 360
+- `js/experiences/panorama360-viewer.js` — sintaxe/import OK
+- renderer: procedural-svg-360
+- temas:
+  - construction
+  - industry
+  - port
+  - health
+  - office
+  - warehouse
+  - workshop
+  - electrical
+- SVG virtual: viewBox 0 0 2400 520
+- quatro orientações indicadas: NORTE / LESTE / SUL / OESTE
+- build smoke dos 8 temas — OK
+- arraste pointer/touch — implementado
+- teclado ←/→ — implementado
+- botões esquerda/centralizar/direita — implementados
+- indicador 0°–360° — implementado
+- hotspot → nota didática — implementado
+- panorama não importa Three.js
+
+OBJETO 3D EM FOCO
+- `js/experiences/object-focus-viewer.js` — sintaxe/import OK
+- usa ThreeViewport
+- usa AssetManager
+- usa GLB/LOD existente
+- normalização de enquadramento — implementada
+- OrbitControls/zoom — preservados
+- rotação automática — implementada
+- reenquadramento — implementado
+- captura PNG — implementada
+- falha WebGL fica isolada do restante da biblioteca
+
+REFERÊNCIAS DE OBJETOS
+- Construção → scaffold — pack válido
+- Indústria → machine — pack válido
+- Porto → reachstacker — pack válido
+- Saúde → bed — pack válido
+- Escritório → chair — pack válido
+- Almoxarifado → rack — pack válido
+- Oficina → grinder — pack válido
+- Obras Elétricas → panel — pack válido
+- todos os IDs existem nos manifests referenciados — OK
+
+MISSÕES 3D
+- 8 atalhos de missão
+- todos apontam para mission IDs existentes em `data/sectors/sectors.json`
+- não duplicam scene factories, RiskEngine, hotspots ou relatórios
+
+ENVIRONMENT EXPERIENCE HUB
+- `js/experiences/environment-experience-hub.js` — sintaxe/import OK
+- viewer carregado por `import()` somente após clique
+- panorama e objeto são independentes
+- missão reutiliza SectorHub
+- `Tela de apresentação` implementada como ferramenta geral
+- nenhuma separação professor/aluno foi criada
+
+SECTOR HUB
+- botão `Abrir experiências visuais` — implementado
+- chamada dinâmica do EnvironmentExperienceHub — implementada
+- unmount próprio para experiência — implementado
+- missão continua funcional após sair da biblioteca
+- versão setorial atualizada para 0.28.0
+
+CAMPUS
+- 8/8 setores sinalizados como 3D/360
+- Campus continua sem pré-carregar viewers
+- navegação setorial preservada
+- versão do Campus 3D atualizada para 0.28.0
+
+CARREGAMENTO MODULAR
+Fluxo validado estruturalmente:
+1. aplicação não importa viewers de experiência;
+2. SectorHub importa ExperienceHub somente ao abrir a biblioteca;
+3. Registry carrega somente o JSON do setor escolhido;
+4. Panorama importa somente Panorama360Viewer;
+5. Objeto importa ObjectFocusViewer + Three.js + 1 GLB;
+6. Missão reaproveita a infraestrutura setorial existente.
+
+PERFORMANCE / ASSETS
+- nenhum GLB novo
+- biblioteca permanece em 125 GLBs
+- panorama usa SVG/DOM, sem WebGL obrigatório
+- objeto 3D solicita apenas um asset/LOD
+- demais ambientes setoriais não são carregados junto
+- fallback 2D/SVG existente preservado
+- QualityManager/Auto Quality preservados
+
+HTTP LOCAL — 16 ROTAS
+- / => 200
+- /version.json => 200
+- /data/environments/index.json => 200
+- /data/environments/porto-logistica.json => 200
+- /data/environments/saude.json => 200
+- /js/experiences/environment-experience-registry.js => 200
+- /js/experiences/environment-experience-hub.js => 200
+- /js/experiences/panorama360-viewer.js => 200
+- /js/experiences/object-focus-viewer.js => 200
+- /js/sectors/sector-hub.js => 200
+- /js/campus/campus-hub.js => 200
+- /assets/sectors/porto/g1/reachstacker_lod1.glb => 200
+- /assets/sectors/saude/g1/bed_lod1.glb => 200
+- /assets/modules/canteiro-360/g4/scaffold_lod1.glb => 200
+- /data/sectors/sectors.json => 200
+- /css/labs.css => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa em navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, JSON, GLB,
+referências, construção dos 8 panoramas, arquitetura de lazy loading,
+integração SectorHub/Campus e carregamento HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8 setores preservados
+- 16 missões / 48 variantes preservadas
+- 8/8 setores com 3D/360
+- Central TST preservada
+- RiskEngine/RiskBridge preservados
+- Scenario Activity Director preservado
+- Character Population preservado
+- Character Pack G2.1/G2/G1 preservados
+- fallback procedural preservado
+
+IMPORTANTE
+Os panoramas da v0.28 são panoramas didáticos procedurais, não fotografias 360,
+levantamentos métricos ou digital twins. A arquitetura foi preparada para
+substituição futura por imagens equiretangulares/cubemap reais sem reescrever
+o SectorHub nem a biblioteca de experiências.

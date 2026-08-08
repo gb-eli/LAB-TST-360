@@ -1,0 +1,120 @@
+TST 360 — VALIDAÇÃO v0.22.0 / G9.2
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 56 arquivos — sintaxe OK
+- JSON: 29 arquivos — válidos
+- Imports relativos locais: 100 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 117 — glTF 2.0 válidos
+- Performance budgets: 25 contextos
+
+CHARACTER PACK G1
+- `assets/characters/g1/manifest.json` — válido
+- `data/characters/packs.json` — válido
+- `js/graphics/character-pack-registry.js` — sintaxe/import OK
+- worker_lod0.glb — válido
+- worker_lod1.glb — válido
+- tst_lod0.glb — válido
+- tst_lod1.glb — válido
+- Character GLBs: 4
+
+SKIN / RIG
+- rig: TST360HumanoidG1
+- skins por GLB: 1
+- joints por GLB: 7
+- inverseBindMatrices: MAT4 / count 7
+- atributos POSITION — presentes
+- atributos NORMAL — presentes
+- atributos JOINTS_0 — presentes
+- atributos WEIGHTS_0 — presentes
+
+ANIMATION CLIPS
+Cada GLB contém exatamente:
+- Idle
+- Walk
+- Inspect
+- Reach
+- Crouch
+- Seated
+- Climb
+
+Total: 7 AnimationClips por personagem.
+
+CHARACTER CONTROLLER
+- aliases string/list — suportados
+- aliases do manifest — integrados
+- GLB contact shadow — implementada
+- contact shadow acompanha deslocamento do root
+- `fallbackReason` — implementado
+- evento `character:source` — implementado
+- evento `character:fallback` — implementado
+- AssetManager animated API — preservada
+
+QUALITY GATE
+- Eco: skinnedCharacters=false
+- Medium: skinnedCharacters=true
+- High: skinnedCharacters=true
+- Ultra: skinnedCharacters=true
+- Eco usa CharacterRig procedural diretamente
+- Médio usa LOD0
+- Alto/Ultra usam LOD1
+- source do personagem é escolhido na abertura da cena; não há hot-swap de source durante a sessão
+
+INTEGRAÇÕES PILOTO
+- Indústria: trabalhador principal solicita `characterAsset('worker')`
+- Espaço Confinado: atendente solicita `characterAsset('tst')`
+- Oficina / corte: TST solicita `characterAsset('tst')`
+- Oficina / manutenção: TST solicita `characterAsset('tst')`
+- cenas não possuem caminho do manifest hardcoded
+
+PERFORMANCE
+- budgets das cenas piloto recalibrados
+- nenhum arquivo de textura externo adicionado ao Character Pack
+- Character Pack permanece low-poly
+- Auto Quality preservado
+- RealismManager preservado
+- EquipmentMotion preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/characters/packs.json => 200
+- /assets/characters/g1/manifest.json => 200
+- /assets/characters/g1/worker_lod0.glb => 200
+- /assets/characters/g1/worker_lod1.glb => 200
+- /assets/characters/g1/tst_lod0.glb => 200
+- /assets/characters/g1/tst_lod1.glb => 200
+- /js/graphics/character-pack-registry.js => 200
+- /js/graphics/character-controller.js => 200
+- /js/graphics/asset-manager.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-workshop.js => 200
+- /data/performance/budgets.json => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, estrutura glTF,
+skin, joints, weights, AnimationClips, manifests, quality gate, integração,
+budgets e carregamento HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- Campus 2D/3D preservado
+- Central TST preservada
+- Semantic Adapters preservados
+- G9 RealismManager preservado
+- CharacterRig procedural permanece como fallback
+
+IMPORTANTE
+O Character Pack G1 é um humanoide low-poly realmente skinned/animado e comprova
+o pipeline SkinnedMesh + AnimationMixer. Ele não é um modelo humano fotorealista,
+biométrico ou rig de produção completo.

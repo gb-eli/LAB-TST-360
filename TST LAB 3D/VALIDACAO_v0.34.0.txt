@@ -1,0 +1,52 @@
+TST 360 — VALIDAÇÃO v0.34.0 / G10.4
+Data: 08/08/2026
+
+RESULTADO GLOBAL
+- erros de sintaxe JS: 0
+- JavaScript: 71
+- JSON: 76
+- imports relativos: 132
+- GLBs: 125
+- WebP: 48
+- laboratórios: 8
+- setores: 8
+- missões: 16
+- variantes: 48
+
+MELHORIAS GRÁFICAS VALIDADA
+- home refinada com hero ampliado e painéis visuais
+- runtime 3D com HUD, iluminação setorial/realce e grade alternável
+- runtime 360 com HUD de cena e destaque de hotspots
+- cards e painéis com maior profundidade visual
+
+AUDITORIA — RESUMO
+Pontos fortes
+- arquitetura modular madura
+- cobertura 3D/360 consolidada
+- lazy loading preservado
+- qualidade adaptativa preservada
+
+Gargalos atuais
+- parte dos assets ainda é mais didática do que realista
+- falta evoluir materiais setoriais e props específicos
+- há espaço para personagens/contextos mais ricos
+
+HTTP LOCAL
+- /: 200
+- /version.json: 200
+- /index.html: 200
+- /js/app.js: 200
+- /js/experiences/object-focus-viewer.js: 200
+- /js/experiences/panorama360-viewer.js: 200
+- /css/base.css: 200
+- /css/layout.css: 200
+- /css/labs.css: 200
+- /docs/GRAPHICS_AUDIT_v0.34.md: 200
+
+ASSETS
+- GLBs novos: 0
+- WebP novos: 0
+- totais preservados: 125 GLBs e 48 WebP
+
+RECOMENDAÇÃO
+Próxima fase sugerida: G10.5 focada em materiais setoriais, props contextuais e reforço de realismo progressivo.

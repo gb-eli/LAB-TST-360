@@ -1,0 +1,155 @@
+TST 360 — VALIDAÇÃO v0.36.0 / G10.6
+Data: 08/08/2026
+
+RESULTADO GLOBAL
+- erros encontrados: 0
+- JavaScript: 75 arquivos — sintaxe OK
+- JSON: 76 arquivos — válidos
+- imports relativos locais: 137 — caminhos OK
+- GLBs: 125 — glTF 2.0 válidos
+- WebP: 48 — preservados
+- laboratórios principais: 8
+- setores profissionais: 8
+- missões setoriais: 16
+- variantes: 48
+- riscos setoriais base: 64
+- performance budgets: 25 contextos
+
+G10.6 — CONTEXT PROPS
+Novos componentes:
+- js/graphics/context-prop-registry.js
+- js/graphics/context-prop-manager.js
+
+REGISTRO
+- perfis: 11
+- definições de props: 33
+- todos os packs referenciados existem
+- todos os IDs existem nos manifests
+- todas as variantes Medium e High referenciadas existem
+
+PERFIS
+- epi
+- construction
+- industry
+- confined
+- forensic
+- port
+- health
+- office
+- warehouse
+- workshop
+- electrical
+
+PLANO DE QUALIDADE
+- Eco: 0 props GLB / LOD family low
+- Medium: 1 prop GLB / LOD family low
+- High: 2 props GLB / LOD family high
+- Ultra: 3 props GLB / LOD family high
+
+REGRA DE MEMÓRIA
+- Eco inicial não adquire GLB contextual.
+- Props são adquiridos incrementalmente conforme a qualidade sobe.
+- Ao cair a qualidade, props extras ficam ocultos.
+- Troca de arquivo LOD ocorre apenas ao cruzar low ↔ high.
+- Medium/Eco compartilham família low.
+- High/Ultra compartilham família high.
+
+REUSO DE ASSETS
+A v0.36 não criou cópias dos props.
+
+O ContextPropRegistry reutiliza objetos já existentes nos packs:
+- EPI: capacete, luvas, botas
+- Construção: pallet, barreira, carrinho
+- Indústria: barreira, extintor, máquina contextual
+- Espaço Confinado: monitor, ventilador, tripé
+- Investigação: prancheta, ferramenta, barreira
+- Porto: batente de doca, contêiner, caminhão
+- Saúde: coletor, armário, carrinho
+- Escritório: cadeira, monitor, extintor
+- Almoxarifado: caixa, carrinho, pallet
+- Oficina: barreira, bancada, esmeril
+- Elétrica: sinalização, proteção de cabo, barreira
+
+ASSET MANAGER
+`acquireFromPack()` agora aceita:
+- applyTransform:true — comportamento legado
+- applyTransform:false — reutilização do asset sem posição/rotação de sua cena original
+
+Compatibilidade:
+- chamadas existentes continuam usando applyTransform:true por padrão.
+
+SEGURANÇA PEDAGÓGICA / SEMÂNTICA
+Props contextuais recebem:
+- tstDecorative = true
+- tstContextProp = true
+- tstContextOnly = true
+- tstIgnoreRisk = true
+
+Eles:
+- não entram no RiskEngine
+- não são adicionados aos pickables
+- não viram hotspot
+- não viram evidência
+- não viram item do relatório
+
+A presença do objeto é cenográfica e não representa arranjo seguro,
+procedimento operacional ou conformidade normativa.
+
+VIEWPORTS
+- 18 viewports 3D encontrados com visualProfile
+- ContextPropManager é acoplado ao ThreeViewport por visualProfile
+- ObjectFocusViewer usa contextProps:false para manter o objeto isolado
+
+MÉTRICAS
+SceneMetrics agora inclui:
+- contextProps.profile
+- contextProps.created
+- contextProps.visible
+- contextProps.requested
+- contextProps.labels
+
+O tooltip de performance também mostra os props GLB ativos.
+
+BUDGETS
+- budgets versionados em 0.36.0
+- 25 contextos preservados
+- Campus 3D não recebeu margem adicional
+- Eco não recebeu margem de prop GLB
+- Medium/High/Ultra receberam headroom conservador para 1/2/3 props
+
+ASSETS
+- GLBs novos: 0
+- WebP novos: 0
+- total permanece 125 GLBs
+- total permanece 48 WebP
+
+HTTP LOCAL — 11 ROTAS CRÍTICAS
+- / => 200
+- /version.json => 200
+- /data/performance/budgets.json => 200
+- /js/graphics/context-prop-registry.js => 200
+- /js/graphics/context-prop-manager.js => 200
+- /js/graphics/asset-manager.js => 200
+- /js/graphics/three-runtime.js => 200
+- /js/graphics/scene-metrics.js => 200
+- /js/experiences/object-focus-viewer.js => 200
+- /docs/CONTEXT_PROPS_v0.36.md => 200
+- /docs/CONTEXT_PROP_REUSE_AUDIT_v0.36.md => 200
+
+AUDITORIA VISUAL INTERATIVA
+Não foi marcada como aprovada nesta rodada.
+
+O ambiente de execução não oferece uma auditoria browser/headless local confiável
+para WebGL. A validação concluída cobre sintaxe, imports, contracts, manifests,
+variantes GLB, qualidade, budgets, contagens e HTTP.
+
+Após publicar no GitHub Pages, recomenda-se conferir visualmente:
+- distância dos props em relação aos riscos principais
+- legibilidade em projetor
+- mobile
+- troca Eco/Médio/Alto/Ultra
+- cenas setoriais com maior densidade
+
+RESULTADO
+G10.6 adiciona mais contexto visual 3D usando reuso de assets e sem aumentar
+a quantidade de arquivos GLB/WebP do projeto.

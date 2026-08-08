@@ -1,0 +1,16 @@
+TST 360 v0.9.0 — VALIDACAO
+Data: 07/08/2026
+
+RESULTADOS
+- JavaScript: 34 arquivos, sintaxe validada com node --check.
+- JSON: 19 arquivos válidos.
+- Imports relativos JS: 47 caminhos validados.
+- Módulos registrados: 8; todos com entry point existente.
+- GLB: 73 arquivos com cabeçalho glTF 2.0 e leitura estrutural via trimesh.
+- Novos GLBs G7: 12 (6 categorias com LOD0/LOD1).
+- HTTP estático: home, version.json, modules.json, manifesto G7, three-scenes-g7.js, pack G7 e machine_lod1.glb responderam HTTP 200.
+- Investigação de Acidentes: manifest 0.9.0; renderer híbrido SVG + Three.js forense G7.
+- HTML: index único na raiz, adequado ao GitHub Pages.
+
+OBSERVACAO
+A validação automatizada com navegador headless/agent-browser não está disponível neste ambiente. Portanto, a auditoria visual automatizada completa não é marcada como concluída. A validação entregue cobre sintaxe, integridade, caminhos, GLBs e carregamento HTTP estático.

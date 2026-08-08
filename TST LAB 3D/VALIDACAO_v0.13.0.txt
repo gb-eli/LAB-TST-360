@@ -1,0 +1,49 @@
+TST 360 — VALIDAÇÃO v0.13.0
+Data: 07/08/2026
+
+RESULTADOS
+- JavaScript: 42 arquivos — sintaxe OK
+- JSON: 22 arquivos — válidos
+- Imports relativos locais: 59 — caminhos OK
+- Laboratórios principais registrados: 8 — entry points preservados
+- GLBs: 73 — glTF 2.0 preservados
+- Biblioteca setorial:
+  - setores: 8
+  - missões funcionais: 16
+  - riscos setoriais: 64
+  - IDs de missão únicos — OK
+  - 4 riscos por missão — OK
+- SectorHub:
+  - renderização do overview — smoke test OK
+  - navegação para setor — smoke test OK
+  - progresso baseado em InspectionSessionService — estrutura OK
+- InspectionSessionService:
+  - relatório de missão setorial — smoke test OK
+- RiskBridge / Central TST:
+  - missões utilizam createInspectionLab e portanto compartilham o fluxo existente — OK
+- HTTP local:
+  / => 200
+  /version.json => 200
+  /data/sectors/sectors.json => 200
+  /js/sectors/sector-hub.js => 200
+  /js/ui/inspection-lab.js => 200
+  /js/tools/tst-toolkit.js => 200
+  /modules/modules.json => 200
+
+ESCOPO v0.13.0
+- Biblioteca de Cenários Profissionais
+- 8 setores
+- 16 missões
+- 64 riscos setoriais
+- Integração com inspeção, evidência, RiskBridge, Central TST e relatórios
+- Cenas SVG leves por setor
+- 8 laboratórios principais e 73 GLBs preservados
+
+AUDITORIA VISUAL
+O executável agent-browser não está disponível neste ambiente. A validação
+foi feita por sintaxe, estrutura, smoke tests de serviços e carregamento HTTP.
+Não foi marcada auditoria visual automatizada por navegador como concluída.
+
+OBSERVAÇÃO
+As missões são educacionais e não substituem normas, protocolos, procedimentos,
+medições, capacitação, inspeções reais ou documentação profissional oficial.

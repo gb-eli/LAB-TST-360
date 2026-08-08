@@ -1,0 +1,36 @@
+TST 360 — VALIDAÇÃO v0.11.0
+Data: 07/08/2026
+
+RESULTADOS
+- JavaScript: 39 arquivos — sintaxe OK
+- JSON: 21 arquivos — válidos
+- Imports relativos locais: 55 — caminhos OK
+- Laboratórios registrados: 8 — entry points OK
+- GLBs: 73 — cabeçalho glTF 2.0 OK
+- Risk Bridge: smoke test OK
+- Performance Budget Manager: smoke test OK
+  - cenário dentro da meta => status OK
+  - cenário acima dos limites => status OVER/ATTENTION
+- HTTP local:
+  / => 200
+  /version.json => 200
+  /modules/modules.json => 200
+  /js/tools/risk-bridge.js => 200
+  /js/graphics/performance-budget-manager.js => 200
+  /data/performance/budgets.json => 200
+  /js/tools/tst-toolkit.js => 200
+  /modules/industria/manifest.json => 200
+- ZIP completo: íntegro
+- ZIP modular: íntegro
+
+ESCOPO v0.11.0
+- Budgets internos de performance por laboratório/perfil gráfico
+- Risk Bridge laboratório -> Central TST
+- Rascunhos revisáveis de Matriz, Inventário e APR
+- Instancing ampliado em Indústria e Eletricidade
+- Persistência do último diagnóstico 3D por laboratório
+
+OBSERVAÇÃO
+As metas de performance são metas internas de engenharia do TST 360.
+As ferramentas são didáticas e não substituem procedimentos, documentos,
+medições, avaliações ou programas oficiais.

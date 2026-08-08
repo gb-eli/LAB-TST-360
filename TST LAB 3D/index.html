@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080c12">
+  <meta name="description" content="TST 360 — Laboratório Virtual de Segurança do Trabalho">
+  <title>TST 360 — Laboratório Virtual</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/labs.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="./">
+        <span class="logo">TST</span>
+        <span><strong>TST 360</strong><small>Laboratório Virtual</small></span>
+      </a>
+      <div class="top-actions">
+        <label class="quality-control">
+          <span>Qualidade</span>
+          <select id="quality-select" aria-label="Qualidade gráfica">
+            <option value="auto">Automático</option>
+            <option value="eco">Eco</option>
+            <option value="medium">Médio</option>
+            <option value="high">Alto</option>
+            <option value="ultra">Ultra</option>
+          </select>
+        </label>
+        <button id="open-campus" class="top-tool-btn" type="button">Mapa Geral</button>
+        <button id="open-sectors" class="top-tool-btn" type="button">Cenários Profissionais</button>
+        <button id="open-tools" class="top-tool-btn" type="button">Ferramentas TST</button>
+        <span id="perf" class="badge perf-badge" hidden>3D —</span>
+        <span id="quality" class="badge">automático</span>
+        <span id="version" class="badge">v0.38.0</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="home">
+        <section class="hero hero-g104">
+          <div class="hero-copy">
+            <p class="kicker">Técnico em Segurança do Trabalho</p>
+            <h1>Laboratórios virtuais modulares, interativos, visuais e preparados para crescer.</h1>
+            <p>Oito laboratórios híbridos, Campus Virtual em 2D/3D, 8 setores profissionais, 48 variantes e uma camada G10.8 focada em realismo progressivo: materiais setoriais, props 3D e uma nova atmosfera procedural por setor: fundo/sky shell, fog calibrada e luzes de acento adaptativas, sem adicionar HDRI ou imagens pesadas.</p>
+            <div class="hero-badges">
+              <span class="badge">G10.8 • atmosfera setorial adaptativa</span>
+              <span class="badge">dressing + props + atmosfera adaptativa</span>
+              <span class="badge">3D + 360 modular</span>
+            </div>
+          </div>
+          <div class="hero-side">
+            <div class="hero-stat-grid">
+              <article><strong>8</strong><span>setores profissionais</span></article>
+              <article><strong>16</strong><span>missões 3D</span></article>
+              <article><strong>16</strong><span>panoramas híbridos</span></article>
+              <article><strong>125</strong><span>GLBs sob demanda</span></article>
+            </div>
+            <div class="hero-audit-card">
+              <strong>Auditoria rápida</strong>
+              <ul>
+                <li>carga modular preservada</li>
+                <li>interface visual refinada</li>
+                <li>ambientes 3D com identidade setorial</li>
+                <li>qualidade Eco/Médio/Alto/Ultra preservada</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <div class="section-head">
+          <div><p class="kicker">Módulos</p><h2>Experiências disponíveis</h2></div>
+          <span id="count" class="muted">Carregando…</span>
+        </div>
+        <section id="grid" class="grid"></section>
+        <section class="home-feature-grid">
+          <article class="tools-home-card campus-home-card">
+            <div><p class="kicker">Mapa Geral da Plataforma</p><h2>Campus Virtual TST</h2><p>Navegue visualmente entre obra, fábrica, porto, hospital, escritório, almoxarifado, oficina, elétrica, laboratórios e Central TST.</p></div>
+            <button id="open-campus-home" type="button">Entrar no Campus</button>
+          </article>
+          <article class="tools-home-card sector-home-card">
+            <div><p class="kicker">Biblioteca de atuação profissional</p><h2>Cenários por setor</h2><p>Explore 8 contextos de trabalho e 16 missões de inspeção em construção, indústria, porto/logística, saúde, escritório, almoxarifado, oficina e obras elétricas.</p></div>
+            <button id="open-sectors-home" type="button">Explorar setores</button>
+          </article>
+          <article class="tools-home-card">
+            <div><p class="kicker">Ferramentas profissionais didáticas</p><h2>Central TST</h2><p>Organize matriz de risco, APR, checklist, inventário e plano de ação usando os resultados salvos dos laboratórios como referência de aprendizagem.</p></div>
+            <button id="open-tools-home" type="button">Abrir Central TST</button>
+          </article>
+        </section>
+      </section>
+
+
+      <section id="campus-view" class="runtime" hidden>
+        <div class="runtime-bar"><button id="campus-back">← Voltar</button><div><strong>Campus Virtual TST</strong><small>Mapa geral 2D/3D • G10.8 • 8/8 setores 3D/360 • dressing + props + atmosfera adaptativa • v0.38.0</small></div></div>
+        <div id="campus-root" class="module-root"></div>
+      </section>
+
+      <section id="sectors-view" class="runtime" hidden>
+        <div class="runtime-bar"><button id="sectors-back">← Voltar</button><div><strong>Cenários Profissionais</strong><small>8 setores • 8 tours ramificados • 16 rotas possíveis • 32 etapas lazy • G10.8 • 157 GLBs • v0.38.0</small></div></div>
+        <div id="sectors-root" class="module-root"></div>
+      </section>
+
+      <section id="tools-view" class="runtime" hidden>
+        <div class="runtime-bar"><button id="tools-back">← Voltar</button><div><strong>Central de Ferramentas TST</strong><small>Registros didáticos locais • gráficos adaptativos • v0.38.0</small></div></div>
+        <div id="tools-root" class="module-root"></div>
+      </section>
+
+      <section id="runtime" class="runtime" hidden>
+        <div class="runtime-bar">
+          <button id="back">← Voltar</button>
+          <div><strong id="runtime-title">Laboratório</strong><small id="runtime-status">carregando…</small></div>
+        </div>
+        <div id="module-root" class="module-root" tabindex="-1"></div>
+      </section>
+
+      <div id="error" class="error" hidden></div>
+    </main>
+    <footer>TST 360 • arquitetura modular • GitHub Pages</footer>
+  </div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

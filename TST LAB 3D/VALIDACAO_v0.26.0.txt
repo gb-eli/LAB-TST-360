@@ -1,0 +1,145 @@
+TST 360 — VALIDAÇÃO v0.26.0 / G9.6
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 59 arquivos — sintaxe OK
+- JSON: 32 arquivos — válidos
+- Imports relativos locais: 110 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+- Performance budgets: 25 contextos
+
+AMBIENT ACTIVITY MANAGER
+- `js/graphics/ambient-activity-manager.js` — sintaxe/import OK
+- path() — implementado
+- oscillate() — implementado
+- rotate() — implementado
+- door() — implementado
+- pulseLight() — implementado
+- priority selection — implementada
+- distance gate — implementado
+- hideWhenInactive — implementado
+- reset de porta/luz — implementado
+- dispose — implementado
+
+QUALITY PLAN
+- Eco: 0 atividades / distância 0 / fator 0
+- Médio: 2 atividades / distância 28 / fator 0.55
+- Alto: 4 atividades / distância 38 / fator 1.0
+- Ultra: 6 atividades / distância 48 / fator 1.15
+
+TESTE DE PRIORIDADE
+Medium:
+- atividade prioridade 10 — ativa
+- atividade prioridade 8 — ativa
+- atividade prioridade 6 — inativa
+- atividade prioridade 4 — inativa
+
+High:
+- prioridades 10/8/6 liberadas
+- atividade distante prioridade 4 permanece inativa por distância
+
+ECO
+- nenhuma atividade ativa
+- objetos opcionais configurados para culling ficam ocultos
+- porta retorna à posição base
+- motion factor = 0
+
+ROTAS
+- caminho de teste: [-11,0,8] → [11,0,8]
+- âncora calculada: [0,0,8]
+- veículo inicial distante da âncora consegue executar o ciclo
+- evita congelamento permanente causado por culling na posição instantânea
+
+INTEGRAÇÕES — INDÚSTRIA
+- empilhadeira procedural de fundo em path
+- três caixas de fundo em path no perfil Alto/Ultra
+- luz operacional
+- objetos dos hotspots continuam independentes
+- nenhum segundo GLB de empilhadeira é baixado
+
+INTEGRAÇÕES — PORTO / PÁTIO
+- caminhão procedural de fundo em path
+- trolley do pórtico em path
+- luz operacional
+- caminhão/reach stacker focais permanecem independentes
+
+INTEGRAÇÕES — PORTO / DOCA
+- caminhão procedural de fundo em path
+- porta de doca vertical
+- luz operacional
+- objetos focais permanecem independentes
+
+INTEGRAÇÕES — SAÚDE / APOIO
+- carrinho procedural de fundo em path
+- porta automática de duas folhas
+- luz de estado
+
+INTEGRAÇÕES — SAÚDE / TRANSPORTE
+- carrinho procedural de fundo em path
+- porta automática de duas folhas
+- luz de estado
+
+DOWNLOAD / ASSETS
+- nenhuma atividade de fundo usa `await loadPack`/`await packAsset` para duplicar veículo
+- veículos/carrinhos ambientais reutilizam clones dos fallbacks procedurais
+- nenhum GLB novo
+- biblioteca permanece em 125 GLBs
+
+PERFORMANCE
+- budgets recalibrados em:
+  - industria
+  - sector-industria-linha-producao
+  - sector-industria-abastecimento-interno
+  - sector-porto-logistica-patio-conteineres
+  - sector-porto-logistica-doca-carregamento
+  - sector-saude-apoio-hospitalar
+  - sector-saude-transporte-interno
+- Eco não recebeu custo adicional
+- Character Population Manager preservado
+- Auto Quality preservado
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /js/graphics/ambient-activity-manager.js => 200
+- /js/graphics/character-population.js => 200
+- /js/graphics/equipment-motion.js => 200
+- /js/graphics/quality-manager.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-port.js => 200
+- /js/graphics/three-scenes-sector-health.js => 200
+- /assets/characters/g21/worker_lod0.glb => 200
+- /assets/sectors/porto/g1/truck_lod1.glb => 200
+- /assets/sectors/saude/g1/cart_lod1.glb => 200
+- /data/performance/budgets.json => 200
+- /docs/AMBIENT_ACTIVITY_v0.26.md => 200
+- /docs/AMBIENT_PERFORMANCE_v0.26.md => 200
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless
+nesta rodada. A validação concluída cobre sintaxe, imports, GLBs, quality plan,
+prioridade, culling, âncora de rotas, retorno ao Eco, integrações, ausência de
+download duplicado de GLB, budgets e carregamento HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- Character Population Manager preservado
+- Character Pack G2.1/G2/G1 preservados
+- CharacterRig procedural preservado
+- Campus e Central TST preservados
+- RiskEngine/RiskBridge preservados
+- fallback 2D/SVG preservado
+
+IMPORTANTE
+Atividade ambiental é contexto visual didático. Velocidades, ciclos, trajetórias
+e temporizações não representam operação real, produtividade, capacidade,
+engenharia de tráfego ou procedimentos certificados.

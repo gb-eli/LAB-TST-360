@@ -1,0 +1,224 @@
+TST 360 — VALIDAÇÃO v0.30.0 / G10.0
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 66 arquivos — sintaxe OK
+- JSON: 67 arquivos — válidos
+- Imports relativos locais: 123 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 125 — glTF 2.0 válidos
+
+G10 — PANORAMA HÍBRIDO
+- `js/experiences/equirectangular-panorama-runtime.js` — sintaxe/import OK
+- `Panorama360Viewer` continua sendo o controlador de graph/UI
+- runtime equiretangular é importado dinamicamente
+- Eco retorna antes do import do runtime de imagem
+- fallback procedural G9.9 preservado
+- alternância:
+  - automático
+  - imagem 360
+  - procedural
+
+PANORAMAS EQUIRETANGULARES
+- nodes com image360: 16
+- tiers por node: 3
+- arquivos WebP: 48
+- total dos WebP: 654.448 bytes (~0,62 MB)
+- todos os 48 arquivos decodificam como WEBP
+- todos possuem proporção 2:1
+
+DIMENSÕES
+- Medium: 1024×512 — 16 arquivos
+- High: 1600×800 — 16 arquivos
+- Ultra: 2400×1200 — 16 arquivos
+
+MAIOR ARQUIVO POR TIER
+- Medium: 8.294 bytes
+- High: 14.382 bytes
+- Ultra: 27.558 bytes
+
+BUDGET DE REDE
+Arquivo:
+- `data/performance/panorama-budgets.json`
+
+Limites:
+- Eco: 0
+- Medium: 98.304 bytes
+- High: 163.840 bytes
+- Ultra: 327.680 bytes
+
+Resultado:
+- todos os arquivos abaixo do budget — OK
+
+MANIFEST G10
+Arquivo:
+- `assets/panoramas/g10/manifest.json`
+
+Validações:
+- 48 entradas
+- path — OK
+- largura/altura — OK
+- bytes — OK
+- SHA-256 — OK
+- sourceType = generated-reference
+
+IMPORTANTE SOBRE AS IMAGENS
+Os 48 WebP incluídos são REFERÊNCIAS GRÁFICAS EQUIRETANGULARES geradas pelo
+próprio projeto a partir dos cenários didáticos procedurais.
+
+Eles NÃO são:
+- fotografias 360 reais;
+- escaneamento;
+- digital twin;
+- levantamento métrico.
+
+O pipeline está preparado para substituir os arquivos por fotografias 360
+equiretangulares reais 2:1 no futuro.
+
+QUALITY MANAGER
+Novos campos validados:
+- `panoramaImage360`
+- `panoramaImageTier`
+
+Planos:
+- Eco:
+  - panoramaImage360 = false
+  - candidates = []
+  - renderer esperado = procedural
+- Medium:
+  - tier selecionado = medium
+- High:
+  - candidates = high → medium
+  - tier selecionado = high
+- Ultra:
+  - candidates = ultra → high → medium
+  - tier selecionado = ultra
+
+FALLBACK DE TIER
+- Ultra → High → Medium
+- High → Medium
+- Medium → fallback procedural se falhar
+- falha total → procedural
+- troca para Eco → procedural
+
+RUNTIME EQUIRETANGULAR
+Validações estruturais:
+- `loadThreeRuntime()` — usado
+- `SphereGeometry` — presente
+- sphere invertida via `scale(-1,1,1)` — presente
+- `TextureLoader` — presente
+- PerspectiveCamera no centro — presente
+- yaw/pitch — implementados
+- pitch limitado — implementado
+- zoom/FOV — implementado
+- pointer/touch — implementados
+- ResizeObserver — implementado
+- renderer com pixelRatio limitado pelo QualityManager — implementado
+- troca de tier em `quality:changed` — implementada
+
+HOTSPOTS NA ESFERA
+- coordenadas x/y continuam vindo do node JSON
+- hotspotTransform remapeia y para a imagem 2:1 de referência
+- u/v → longitude/latitude
+- Vector3 → `project(camera)`
+- hotspots atrás da câmera são ocultados
+- ações continuam:
+  - nota
+  - mudança de node
+  - objeto 3D
+  - missão 3D
+
+VIEWER HÍBRIDO
+- renderer procedural permanece disponível
+- renderer de imagem é opcional
+- badge informa renderer/tier
+- painel informa origem visual
+- botão `Visual:` permite comparar:
+  - automático
+  - imagem 360
+  - procedural
+- falha da imagem não derruba o panorama
+
+LAZY LOADING
+Preservado:
+- setor carregado sob demanda
+- panorama graph carregado sob demanda
+- node carregado sob demanda
+- imagem do node carregada sob demanda
+- tier escolhido por qualidade
+- objeto 3D continua independente
+- missão 3D continua independente
+
+ASSETS / PERFORMANCE
+- 48 WebP novos
+- nenhum GLB novo
+- total de GLBs permanece em 125
+- Eco não baixa WebP
+- Medium/High/Ultra baixam apenas a imagem da zona aberta
+- imagens de outras zonas/setores não são pré-carregadas
+
+AUDITORIA VISUAL DOS ASSETS
+Foi gerado e inspecionado um contact sheet interno com os 16 panoramas High.
+A inspeção visual confirmou:
+- arquivos renderizados;
+- conteúdo setorial presente;
+- pares primary/secondary visualmente distintos;
+- faixa de horizonte preservada;
+- extensão 2:1 consistente.
+
+Essa inspeção é de ASSET RASTER, não substitui auditoria interativa do runtime
+WebGL em navegador real.
+
+HTTP LOCAL — 21 ROTAS
+- / => 200
+- /version.json => 200
+- /data/environments/index.json => 200
+- /data/environments/porto-logistica/panorama/patio.json => 200
+- /data/performance/panorama-budgets.json => 200
+- /assets/panoramas/g10/manifest.json => 200
+- /assets/panoramas/g10/porto-logistica/patio_medium.webp => 200
+- /assets/panoramas/g10/porto-logistica/patio_high.webp => 200
+- /assets/panoramas/g10/porto-logistica/patio_ultra.webp => 200
+- /assets/panoramas/g10/saude/transporte_high.webp => 200
+- /js/experiences/panorama360-viewer.js => 200
+- /js/experiences/equirectangular-panorama-runtime.js => 200
+- /js/experiences/panorama-graph-loader.js => 200
+- /js/experiences/environment-experience-hub.js => 200
+- /js/graphics/quality-manager.js => 200
+- /js/sectors/sector-hub.js => 200
+- /js/campus/campus-hub.js => 200
+- /css/labs.css => 200
+- /docs/ARQUITETURA_v0.30.md => 200
+- /docs/EQUIRECTANGULAR_PANORAMA_v0.30.md => 200
+- /docs/PANORAMA_IMAGE_PIPELINE_v0.30.md => 200
+
+AUDITORIA INTERATIVA EM NAVEGADOR
+Não foi marcada como aprovada nesta rodada.
+
+O ambiente anterior bloqueou acesso do Chromium headless ao servidor local por
+política da organização. Nesta fase foi realizada validação HTTP, estrutural,
+de assets, tiers, hashes e inspeção visual dos panoramas raster.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8 setores preservados
+- 16 missões / 48 variantes preservadas
+- 16 panoramas e 80 hotspots preservados
+- EnvironmentExperienceHub preservado
+- PanoramaGraphLoader preservado
+- ObjectFocusViewer preservado
+- Central TST preservada
+- RiskEngine/RiskBridge preservados
+- Scenario Activity Director preservado
+- Character Population preservado
+- Character Pack G2.1/G2/G1 preservados
+- fallback procedural preservado
+- mesma ferramenta para qualquer usuário; sem roles
+
+RESULTADO FINAL
+- erros encontrados na validação global: 0

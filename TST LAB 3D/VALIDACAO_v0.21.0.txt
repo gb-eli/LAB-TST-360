@@ -1,0 +1,104 @@
+TST 360 — VALIDAÇÃO v0.21.0 / G9.1
+Data: 08/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 55 arquivos — sintaxe OK
+- JSON: 27 arquivos — válidos
+- Imports relativos locais: 98 — caminhos OK
+- Laboratórios principais: 8 — preservados
+- Setores profissionais: 8 — preservados
+- Setores com 3D: 8/8 — preservados
+- Missões setoriais: 16 — preservadas
+- Variantes A/B/C: 48 — preservadas
+- Riscos setoriais base: 64 — preservados
+- GLBs: 113 — glTF 2.0 válidos
+- Performance budgets: 25 contextos
+
+CHARACTER CONTROLLER
+- `js/graphics/character-controller.js` — sintaxe/import OK
+- estados: idle/walk/inspect/reach/crouch/seated/climb
+- alias resolver testado:
+  walk -> Walking
+  reach -> Reach_Action
+  inspect -> fallback Idle Breath
+  seated -> Sitting
+- procedural CharacterRig — suportado
+- futuro GLB animado — contrato implementado
+- fallback GLB -> procedural — implementado
+- Eco (`animations:false`) — ciclos congelados e pose preservada
+
+ASSET MANAGER ANIMADO
+- `acquireAnimated()` — presente
+- `acquireAnimatedFromPack()` — presente
+- `source.animations` preservado — OK
+- nomes de clips expostos em `__animationClipNames`
+- SkeletonUtils.clone continua no pipeline
+
+EQUIPMENT MOTION
+- `js/graphics/equipment-motion.js` — sintaxe/import OK
+- rotate — presente
+- vibrate — presente
+- oscillate — presente
+- statusLight — presente
+- teste Eco: rotação 0, posição preservada
+- teste High: motion ativado
+- motion respeita `animations:false`
+
+MIGRAÇÕES
+- Indústria G5 usa CharacterController — OK
+- Espaço Confinado G5 usa CharacterController — OK
+- Oficina / corte usa CharacterController — OK
+- Oficina / manutenção usa CharacterController — OK
+- arquivos migrados sem chamadas a createCharacterRig/createCharacterMotion — OK
+- módulos de cena importam via Node — OK
+
+SEGURANÇA VISUAL
+- corte/esmerilhamento pode receber vibração mínima em Alto/Ultra
+- indústria pode receber motion contextual leve
+- preparação para manutenção NÃO vibra/opera a máquina
+- manutenção usa somente statusLight de estado/energia
+
+PERFORMANCE
+- budgets G9 recalibrados para contact shadows
+- budgets Indústria/Oficina recebem margem para status meshes
+- Auto Quality preservado
+- 113 GLBs preservados
+- nenhum GLB novo
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /js/graphics/character-controller.js => 200
+- /js/graphics/equipment-motion.js => 200
+- /js/graphics/asset-manager.js => 200
+- /js/graphics/three-scenes-g5.js => 200
+- /js/graphics/three-scenes-sector-workshop.js => 200
+- /js/graphics/character-rig.js => 200
+- /js/graphics/realism-manager.js => 200
+- /js/sectors/sector-3d-registry.js => 200
+- /data/performance/budgets.json => 200
+- /assets/modules/industria/g5/manifest.json => 200
+- /assets/sectors/oficina/g1/manifest.json => 200
+
+AUDITORIA VISUAL
+Não foi executada uma auditoria visual automatizada completa por navegador
+headless nesta rodada. As verificações concluídas cobrem sintaxe, imports,
+contratos de animação, lógica de qualidade, integração de cenas, dados, assets,
+budgets e carregamento HTTP.
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 8/8 setores 3D preservados
+- 16 missões / 48 variantes preservadas
+- 113 GLBs preservados
+- G9 RealismManager preservado
+- Semantic Adapters preservados
+- Campus e Central TST preservados
+- fallback 2D/SVG preservado
+
+IMPORTANTE
+A v0.21 prepara AnimationMixer/SkinnedMesh para futuros personagens GLB,
+mas ainda utiliza personagens procedurais no conteúdo distribuído.
+Animações de equipamento são didáticas e não constituem modelos físicos
+ou procedimentos operacionais.

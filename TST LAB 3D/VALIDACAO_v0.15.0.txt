@@ -1,0 +1,82 @@
+TST 360 — VALIDAÇÃO v0.15.0
+Data: 07/08/2026
+
+RESULTADOS ESTRUTURAIS
+- JavaScript: 45 arquivos — sintaxe OK
+- JSON: 24 arquivos — válidos
+- Imports relativos locais: 70 — caminhos OK
+- Laboratórios principais registrados: 8 — preservados
+- GLBs: 89 — glTF 2.0 válidos
+- Setores profissionais: 8 — OK
+- Missões setoriais: 16 — OK
+- Variantes A/B/C: 48 — OK
+- Riscos setoriais base: 64 — OK
+- IDs ativos das variantes referenciam riscos válidos — OK
+
+CAMPUS VIRTUAL TST
+- `js/campus/campus-hub.js` — sintaxe/import OK
+- IDs de navegação do HTML — presentes
+- EventBus `campus:navigate` — integrado ao app
+- Abertura de setor — integrada
+- Abertura de laboratório relacionado — integrada
+- Abertura da Central TST — integrada
+- Layout desktop + fallback responsivo por CSS — presente
+
+SAÚDE/HOSPITAL 3D
+- `three-scenes-sector-health.js` — sintaxe/import OK
+- `Área de apoio hospitalar` — factory 3D integrada
+- `Transporte interno e ergonomia` — factory 3D integrada
+- Variantes A/B/C recebidas pelo renderer 3D
+- Riscos ativos filtrados no 3D
+- Captura/evidência/relatório continuam compartilhados pelo InspectionLab
+
+ASSETS HOSPITALARES
+- Pack `assets/sectors/saude/g1/` — OK
+- bed LOD0/LOD1 — OK
+- cart LOD0/LOD1 — OK
+- waste-bin LOD0/LOD1 — OK
+- cabinet LOD0/LOD1 — OK
+- 8 novos GLBs
+- Biblioteca total: 89 GLBs
+
+PERFORMANCE
+- budget `sector-saude-apoio-hospitalar` — presente
+- budget `sector-saude-transporte-interno` — presente
+- budgets portuários anteriores — preservados
+- Instancing hospitalar — armários/rotas repetidas
+
+ES MODULE SMOKE TEST
+- CampusHub — OK
+- SectorHub — OK
+- Health Sector 3D — OK
+
+HTTP LOCAL
+- / => 200
+- /version.json => 200
+- /data/sectors/sectors.json => 200
+- /js/campus/campus-hub.js => 200
+- /js/sectors/sector-hub.js => 200
+- /js/graphics/three-scenes-sector-health.js => 200
+- /assets/sectors/saude/g1/manifest.json => 200
+- /assets/sectors/saude/g1/bed_lod1.glb => 200
+- /assets/sectors/porto/g1/truck_lod1.glb => 200
+- /data/performance/budgets.json => 200
+
+COMPATIBILIDADE
+- GitHub Pages/front-end puro preservado
+- 8 laboratórios preservados
+- 48 variantes setoriais preservadas
+- Porto 3D preservado
+- Central TST, RiskBridge e InspectionSessionService preservados
+- fallback SVG preservado
+- 3D continua sob demanda
+
+AUDITORIA VISUAL
+Não foi executada auditoria visual automatizada completa com navegador headless.
+As validações concluídas cobrem sintaxe, imports, estrutura, assets, dados,
+ES modules, integração modular e carregamento HTTP.
+
+USO EDUCACIONAL
+O Hospital 3D representa riscos ocupacionais de forma didática. Não simula
+assistência clínica, não substitui protocolos de biossegurança institucionais,
+inspeções reais, medições ou documentação profissional.
