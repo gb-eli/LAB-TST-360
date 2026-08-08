@@ -1,0 +1,21 @@
+{
+  "version": "0.32.0",
+  "sectorId": "oficina",
+  "defaultNode": "esmerilhamento",
+  "nodes": [
+    {
+      "id": "esmerilhamento",
+      "title": "Bancada e esmerilhamento",
+      "path": "data/environments/oficina/panorama/esmerilhamento.json",
+      "sceneVariant": "primary"
+    },
+    {
+      "id": "manutencao",
+      "title": "Área de manutenção",
+      "path": "data/environments/oficina/panorama/manutencao.json",
+      "sceneVariant": "secondary"
+    }
+  ],
+  "renderer": "hybrid-equirectangular-lazy",
+  "authoringCompatible": true
+}
