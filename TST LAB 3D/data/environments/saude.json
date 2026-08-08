@@ -1,0 +1,117 @@
+{
+  "version": "0.38.0",
+  "sectorId": "saude",
+  "label": "Saúde e Hospital",
+  "icon": "🏥",
+  "theme": "health",
+  "summary": "Corredor e apoio hospitalar para visualizar circulação, transporte, resíduos e organização.",
+  "notice": "Conteúdo educacional para observação, comparação e discussão. Não substitui inspeção real, procedimento operacional, avaliação profissional ou requisito aplicável.",
+  "experiences": [
+    {
+      "id": "panorama-360",
+      "type": "panorama360",
+      "title": "Hospital 360 — corredor e apoio",
+      "description": "Panorama didático para discutir rotas, carrinhos, piso, resíduos e organização de apoio sem representar protocolo clínico.",
+      "hotspots": [
+        {
+          "x": 8,
+          "y": 61,
+          "label": "Piso / circulação",
+          "note": "Observe condições do piso e continuidade da rota."
+        },
+        {
+          "x": 29,
+          "y": 40,
+          "label": "Carrinho",
+          "note": "Discuta estacionamento, passagem e movimentação interna."
+        },
+        {
+          "x": 49,
+          "y": 57,
+          "label": "Resíduos",
+          "note": "Use o ponto para falar de acondicionamento e organização ocupacional."
+        },
+        {
+          "x": 70,
+          "y": 35,
+          "label": "Transporte interno",
+          "note": "Observe postura, espaço e interação com o corredor."
+        },
+        {
+          "x": 90,
+          "y": 48,
+          "label": "Rota de emergência",
+          "note": "Analise obstruções e leitura visual da circulação."
+        }
+      ],
+      "renderer": "hybrid-equirectangular+procedural",
+      "futureCompatibleWith": [
+        "equirectangular-image",
+        "cubemap"
+      ],
+      "graph": "data/environments/saude/panorama/index.json",
+      "viewpointCount": 2,
+      "lazyNodeLoading": true,
+      "depthLayers": 3,
+      "hotspotActions": [
+        "note",
+        "node",
+        "object3d",
+        "mission3d"
+      ],
+      "image360Nodes": 2,
+      "qualityPolicy": {
+        "eco": "procedural",
+        "medium": "equirectangular medium",
+        "high": "equirectangular high",
+        "ultra": "equirectangular ultra"
+      },
+      "authoring": {
+        "enabled": true,
+        "localOnly": true,
+        "accept": "image/*",
+        "preferredProjection": "equirectangular",
+        "preferredAspectRatio": "2:1",
+        "exports": [
+          "node-json",
+          "medium-webp",
+          "high-webp",
+          "ultra-webp"
+        ]
+      },
+      "authoringEnabled": true,
+      "authoringTool": "panorama-authoring-tool"
+    },
+    {
+      "id": "bed",
+      "type": "object3d",
+      "title": "Cama hospitalar em foco",
+      "pack": "assets/sectors/saude/g1/manifest.json",
+      "description": "Objeto 3D para girar e aproximar durante explicações de transporte e organização do espaço.",
+      "callouts": [
+        "Estrutura e rodas",
+        "Área de aproximação",
+        "Espaço lateral",
+        "Relação com a rota"
+      ],
+      "renderer": "Three.js + existing GLB/LOD"
+    },
+    {
+      "id": "transporte-interno",
+      "type": "mission3d",
+      "title": "Missão 3D — transporte interno",
+      "description": "Abre uma missão interativa 3D do setor com riscos, variantes, evidências e relatório.",
+      "renderer": "existing sector mission 3D"
+    }
+  ],
+  "loadPolicy": "experience-on-demand",
+  "tour": {
+    "id": "tour-saude",
+    "path": "data/tours/saude.json",
+    "stepCount": 4,
+    "label": "Tour visual guiado",
+    "routing": "branch-and-converge",
+    "routeChoices": 2,
+    "decisionStepId": "entrada"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": "0.32.0",
+  "sectorId": "saude",
+  "defaultNode": "apoio",
+  "nodes": [
+    {
+      "id": "apoio",
+      "title": "Apoio hospitalar",
+      "path": "data/environments/saude/panorama/apoio.json",
+      "sceneVariant": "primary"
+    },
+    {
+      "id": "transporte",
+      "title": "Transporte interno",
+      "path": "data/environments/saude/panorama/transporte.json",
+      "sceneVariant": "secondary"
+    }
+  ],
+  "renderer": "hybrid-equirectangular-lazy",
+  "authoringCompatible": true
+}

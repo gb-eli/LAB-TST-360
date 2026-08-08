@@ -1,0 +1,1 @@
+export class AssetProvider{constructor(base){this.base=base}resolve(path){return new URL(path,this.base).href}async json(path,{signal,cache="no-cache"}={}){const r=await fetch(this.resolve(path),{signal,cache});if(!r.ok)throw new Error(`Falha ao carregar ${path} (${r.status})`);return r.json()}}

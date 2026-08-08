@@ -1,0 +1,57 @@
+{
+  "version": "0.22.0",
+  "name": "TST 360 Character Pack G1",
+  "notice": "Humanoides low-poly educacionais com skinning e animações embutidas. Não são modelos biométricos ou avatares fotorealistas.",
+  "rig": "TST360HumanoidG1",
+  "clips": [
+    "Idle",
+    "Walk",
+    "Inspect",
+    "Reach",
+    "Crouch",
+    "Seated",
+    "Climb"
+  ],
+  "assets": {
+    "worker": {
+      "type": "skinned-character",
+      "role": "worker",
+      "animated": true,
+      "lod": {
+        "eco": "worker_lod0.glb",
+        "medium": "worker_lod0.glb",
+        "high": "worker_lod1.glb",
+        "ultra": "worker_lod1.glb"
+      },
+      "clipAliases": {
+        "idle": "Idle",
+        "walk": "Walk",
+        "inspect": "Inspect",
+        "reach": "Reach",
+        "crouch": "Crouch",
+        "seated": "Seated",
+        "climb": "Climb"
+      }
+    },
+    "tst": {
+      "type": "skinned-character",
+      "role": "tst",
+      "animated": true,
+      "lod": {
+        "eco": "tst_lod0.glb",
+        "medium": "tst_lod0.glb",
+        "high": "tst_lod1.glb",
+        "ultra": "tst_lod1.glb"
+      },
+      "clipAliases": {
+        "idle": "Idle",
+        "walk": "Walk",
+        "inspect": "Inspect",
+        "reach": "Reach",
+        "crouch": "Crouch",
+        "seated": "Seated",
+        "climb": "Climb"
+      }
+    }
+  }
+}

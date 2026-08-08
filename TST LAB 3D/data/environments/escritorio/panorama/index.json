@@ -1,0 +1,21 @@
+{
+  "version": "0.32.0",
+  "sectorId": "escritorio",
+  "defaultNode": "postos",
+  "nodes": [
+    {
+      "id": "postos",
+      "title": "Postos de trabalho",
+      "path": "data/environments/escritorio/panorama/postos.json",
+      "sceneVariant": "primary"
+    },
+    {
+      "id": "emergencia",
+      "title": "Circulação e emergência",
+      "path": "data/environments/escritorio/panorama/emergencia.json",
+      "sceneVariant": "secondary"
+    }
+  ],
+  "renderer": "hybrid-equirectangular-lazy",
+  "authoringCompatible": true
+}

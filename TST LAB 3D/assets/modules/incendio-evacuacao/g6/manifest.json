@@ -1,0 +1,37 @@
+{
+  "version": "g6",
+  "assets": {
+    "exit_door": {
+      "lod": {
+        "eco": "exit_door_lod0.glb",
+        "medium": "exit_door_lod0.glb",
+        "high": "exit_door_lod1.glb",
+        "ultra": "exit_door_lod1.glb"
+      }
+    },
+    "exit_sign": {
+      "lod": {
+        "eco": "exit_sign_lod0.glb",
+        "medium": "exit_sign_lod0.glb",
+        "high": "exit_sign_lod1.glb",
+        "ultra": "exit_sign_lod1.glb"
+      }
+    },
+    "alarm": {
+      "lod": {
+        "eco": "alarm_lod0.glb",
+        "medium": "alarm_lod0.glb",
+        "high": "alarm_lod1.glb",
+        "ultra": "alarm_lod1.glb"
+      }
+    },
+    "extinguisher_cabinet": {
+      "lod": {
+        "eco": "extinguisher_cabinet_lod0.glb",
+        "medium": "extinguisher_cabinet_lod0.glb",
+        "high": "extinguisher_cabinet_lod1.glb",
+        "ultra": "extinguisher_cabinet_lod1.glb"
+      }
+    }
+  }
+}

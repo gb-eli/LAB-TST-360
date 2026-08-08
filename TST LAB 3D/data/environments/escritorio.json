@@ -1,0 +1,117 @@
+{
+  "version": "0.38.0",
+  "sectorId": "escritorio",
+  "label": "Escritório e Administrativo",
+  "icon": "🖥️",
+  "theme": "office",
+  "summary": "Ambiente administrativo para discutir posto de trabalho, circulação, cabos e preparação para emergência.",
+  "notice": "Conteúdo educacional para observação, comparação e discussão. Não substitui inspeção real, procedimento operacional, avaliação profissional ou requisito aplicável.",
+  "experiences": [
+    {
+      "id": "panorama-360",
+      "type": "panorama360",
+      "title": "Escritório 360 — postos e circulação",
+      "description": "Varra visualmente o escritório e use os pontos para comparar organização, postura, equipamentos e rotas.",
+      "hotspots": [
+        {
+          "x": 10,
+          "y": 39,
+          "label": "Monitor",
+          "note": "Observe posição visual do monitor em relação ao posto."
+        },
+        {
+          "x": 29,
+          "y": 61,
+          "label": "Cadeira",
+          "note": "Discuta apoio, postura e ajustes possíveis sem prescrever medida individual."
+        },
+        {
+          "x": 49,
+          "y": 68,
+          "label": "Cabos",
+          "note": "Analise organização sob mesas e áreas de passagem."
+        },
+        {
+          "x": 70,
+          "y": 54,
+          "label": "Caixas / circulação",
+          "note": "Observe redução de passagem por materiais."
+        },
+        {
+          "x": 90,
+          "y": 34,
+          "label": "Saída / sinalização",
+          "note": "Use para discutir leitura e acesso à rota de saída."
+        }
+      ],
+      "renderer": "hybrid-equirectangular+procedural",
+      "futureCompatibleWith": [
+        "equirectangular-image",
+        "cubemap"
+      ],
+      "graph": "data/environments/escritorio/panorama/index.json",
+      "viewpointCount": 2,
+      "lazyNodeLoading": true,
+      "depthLayers": 3,
+      "hotspotActions": [
+        "note",
+        "node",
+        "object3d",
+        "mission3d"
+      ],
+      "image360Nodes": 2,
+      "qualityPolicy": {
+        "eco": "procedural",
+        "medium": "equirectangular medium",
+        "high": "equirectangular high",
+        "ultra": "equirectangular ultra"
+      },
+      "authoring": {
+        "enabled": true,
+        "localOnly": true,
+        "accept": "image/*",
+        "preferredProjection": "equirectangular",
+        "preferredAspectRatio": "2:1",
+        "exports": [
+          "node-json",
+          "medium-webp",
+          "high-webp",
+          "ultra-webp"
+        ]
+      },
+      "authoringEnabled": true,
+      "authoringTool": "panorama-authoring-tool"
+    },
+    {
+      "id": "chair",
+      "type": "object3d",
+      "title": "Cadeira de escritório em foco",
+      "pack": "assets/sectors/escritorio/g1/manifest.json",
+      "description": "Visualização orbitável do mobiliário para apoiar discussões de ergonomia e ajustes de forma não prescritiva.",
+      "callouts": [
+        "Encosto",
+        "Assento",
+        "Base e estabilidade",
+        "Relação com mesa e usuário"
+      ],
+      "renderer": "Three.js + existing GLB/LOD"
+    },
+    {
+      "id": "posto-trabalho",
+      "type": "mission3d",
+      "title": "Missão 3D — posto de trabalho",
+      "description": "Abre uma missão interativa 3D do setor com riscos, variantes, evidências e relatório.",
+      "renderer": "existing sector mission 3D"
+    }
+  ],
+  "loadPolicy": "experience-on-demand",
+  "tour": {
+    "id": "tour-escritorio",
+    "path": "data/tours/escritorio.json",
+    "stepCount": 4,
+    "label": "Tour visual guiado",
+    "routing": "branch-and-converge",
+    "routeChoices": 2,
+    "decisionStepId": "entrada"
+  }
+}

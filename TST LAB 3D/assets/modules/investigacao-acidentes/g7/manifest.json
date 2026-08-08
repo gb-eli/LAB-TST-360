@@ -1,0 +1,53 @@
+{
+  "version": "g7",
+  "assets": {
+    "machine": {
+      "lod": {
+        "eco": "machine_lod0.glb",
+        "medium": "machine_lod0.glb",
+        "high": "machine_lod1.glb",
+        "ultra": "machine_lod1.glb"
+      }
+    },
+    "panel": {
+      "lod": {
+        "eco": "panel_lod0.glb",
+        "medium": "panel_lod0.glb",
+        "high": "panel_lod1.glb",
+        "ultra": "panel_lod1.glb"
+      }
+    },
+    "guard": {
+      "lod": {
+        "eco": "guard_lod0.glb",
+        "medium": "guard_lod0.glb",
+        "high": "guard_lod1.glb",
+        "ultra": "guard_lod1.glb"
+      }
+    },
+    "wrench": {
+      "lod": {
+        "eco": "wrench_lod0.glb",
+        "medium": "wrench_lod0.glb",
+        "high": "wrench_lod1.glb",
+        "ultra": "wrench_lod1.glb"
+      }
+    },
+    "clipboard": {
+      "lod": {
+        "eco": "clipboard_lod0.glb",
+        "medium": "clipboard_lod0.glb",
+        "high": "clipboard_lod1.glb",
+        "ultra": "clipboard_lod1.glb"
+      }
+    },
+    "barrier": {
+      "lod": {
+        "eco": "barrier_lod0.glb",
+        "medium": "barrier_lod0.glb",
+        "high": "barrier_lod1.glb",
+        "ultra": "barrier_lod1.glb"
+      }
+    }
+  }
+}

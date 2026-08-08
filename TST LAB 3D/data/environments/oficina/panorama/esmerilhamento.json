@@ -1,0 +1,96 @@
+{
+  "version": "0.31.0",
+  "sectorId": "oficina",
+  "id": "esmerilhamento",
+  "title": "Bancada e esmerilhamento",
+  "description": "Observe bancada, ferramenta, cabos e zona de trabalho.",
+  "sceneVariant": "primary",
+  "startOffset": 4,
+  "hotspots": [
+    {
+      "id": "esmerilhamento-h1",
+      "x": 9,
+      "y": 52,
+      "label": "Bancada",
+      "note": "Analise organização da área de trabalho.",
+      "category": "structure"
+    },
+    {
+      "id": "esmerilhamento-h2",
+      "x": 28,
+      "y": 34,
+      "label": "Esmeril 3D",
+      "note": "Abra o equipamento isolado em 3D.",
+      "category": "object",
+      "action": {
+        "type": "experience",
+        "experienceId": "grinder",
+        "label": "Abrir objeto 3D"
+      }
+    },
+    {
+      "id": "esmerilhamento-h3",
+      "x": 50,
+      "y": 61,
+      "label": "Cabos e ferramentas",
+      "note": "Observe circulação e objetos no piso.",
+      "category": "flow"
+    },
+    {
+      "id": "esmerilhamento-h4",
+      "x": 71,
+      "y": 39,
+      "label": "Missão esmerilhamento",
+      "note": "Abra a missão 3D de corte e esmerilhamento.",
+      "category": "mission",
+      "action": {
+        "type": "experience",
+        "experienceId": "esmerilhamento",
+        "label": "Abrir missão 3D"
+      }
+    },
+    {
+      "id": "esmerilhamento-h5",
+      "x": 91,
+      "y": 50,
+      "label": "Ir para manutenção",
+      "note": "Mude para a zona de manutenção.",
+      "category": "node",
+      "action": {
+        "type": "node",
+        "nodeId": "manutencao",
+        "label": "Mudar ponto de observação"
+      }
+    }
+  ],
+  "image360": {
+    "projection": "equirectangular",
+    "sourceType": "generated-reference",
+    "notice": "Imagem 360 gráfica de referência gerada a partir do cenário didático; pode ser substituída futuramente por fotografia equiretangular real.",
+    "tiers": {
+      "medium": {
+        "src": "assets/panoramas/g10/oficina/esmerilhamento_medium.webp",
+        "width": 1024,
+        "height": 512,
+        "bytes": 5230
+      },
+      "high": {
+        "src": "assets/panoramas/g10/oficina/esmerilhamento_high.webp",
+        "width": 1600,
+        "height": 800,
+        "bytes": 9594
+      },
+      "ultra": {
+        "src": "assets/panoramas/g10/oficina/esmerilhamento_ultra.webp",
+        "width": 2400,
+        "height": 1200,
+        "bytes": 19758
+      }
+    },
+    "hotspotTransform": {
+      "top": 0.283333,
+      "height": 0.433333
+    },
+    "fallback": "procedural-svg-360-graph"
+  }
+}

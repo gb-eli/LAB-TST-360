@@ -1,0 +1,157 @@
+{
+  "version": "0.6.0",
+  "type": "g4-asset-pack",
+  "inherits": "../g3/manifest.json",
+  "assets": {
+    "ladder": {
+      "lod": {
+        "eco": "../g3/ladder_lod0.glb",
+        "medium": "../g3/ladder_lod0.glb",
+        "high": "../g3/ladder_lod1.glb",
+        "ultra": "../g3/ladder_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          -0.8,
+          0,
+          2.1
+        ],
+        "rotation": [
+          0,
+          0,
+          -0.22
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "pallet": {
+      "lod": {
+        "eco": "../g3/pallet_lod0.glb",
+        "medium": "../g3/pallet_lod0.glb",
+        "high": "../g3/pallet_lod1.glb",
+        "ultra": "../g3/pallet_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          -4.1,
+          0.02,
+          0.9
+        ],
+        "rotation": [
+          0,
+          0.12,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "cone": {
+      "lod": {
+        "eco": "../g3/cone_lod0.glb",
+        "medium": "../g3/cone_lod0.glb",
+        "high": "../g3/cone_lod1.glb",
+        "ultra": "../g3/cone_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          2.6,
+          0,
+          2.9
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "scaffold": {
+      "lod": {
+        "eco": "scaffold_lod0.glb",
+        "medium": "scaffold_lod0.glb",
+        "high": "scaffold_lod1.glb",
+        "ultra": "scaffold_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          1.7,
+          0,
+          -1
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "wheelbarrow": {
+      "lod": {
+        "eco": "wheelbarrow_lod0.glb",
+        "medium": "wheelbarrow_lod0.glb",
+        "high": "wheelbarrow_lod1.glb",
+        "ultra": "wheelbarrow_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          3.2,
+          0,
+          1.2
+        ],
+        "rotation": [
+          0,
+          -0.45,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "barrier": {
+      "lod": {
+        "eco": "barrier_lod0.glb",
+        "medium": "barrier_lod0.glb",
+        "high": "barrier_lod1.glb",
+        "ultra": "barrier_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          0.8,
+          0,
+          3.2
+        ],
+        "rotation": [
+          0,
+          0.2,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  }
+}

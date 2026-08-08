@@ -1,0 +1,86 @@
+{
+  "version": "0.5.0",
+  "type": "g3-asset-pack",
+  "assets": {
+    "helmet": {
+      "lod": {
+        "eco": "helmet_lod0.glb",
+        "medium": "helmet_lod0.glb",
+        "high": "helmet_lod1.glb",
+        "ultra": "helmet_lod2.glb"
+      },
+      "transform": {
+        "position": [
+          0,
+          3.24,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "glasses": {
+      "lod": {
+        "eco": "glasses_lod0.glb",
+        "medium": "glasses_lod0.glb",
+        "high": "glasses_lod1.glb",
+        "ultra": "glasses_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          0,
+          3.1,
+          0.33
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "respirator": {
+      "lod": {
+        "eco": "respirator_lod0.glb",
+        "medium": "respirator_lod0.glb",
+        "high": "respirator_lod1.glb",
+        "ultra": "respirator_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          0,
+          2.95,
+          0.25
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "harness": {
+      "lod": {
+        "eco": "harness_lod0.glb",
+        "medium": "harness_lod0.glb",
+        "high": "harness_lod1.glb",
+        "ultra": "harness_lod1.glb"
+      },
+      "transform": {
+        "position": [
+          0,
+          2.1,
+          0.35
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "version": "0.38.0",
+  "sectorId": "oficina",
+  "label": "Oficina e Manutenção",
+  "icon": "🔧",
+  "theme": "workshop",
+  "summary": "Oficina visual para discutir ferramentas, máquina, cabos, organização e preparação de manutenção.",
+  "notice": "Conteúdo educacional para observação, comparação e discussão. Não substitui inspeção real, procedimento operacional, avaliação profissional ou requisito aplicável.",
+  "experiences": [
+    {
+      "id": "panorama-360",
+      "type": "panorama360",
+      "title": "Oficina 360 — bancada e manutenção",
+      "description": "Varra a oficina para identificar zonas de trabalho, organização, ferramenta e acesso à máquina.",
+      "hotspots": [
+        {
+          "x": 9,
+          "y": 53,
+          "label": "Bancada",
+          "note": "Observe organização da superfície e área ao redor."
+        },
+        {
+          "x": 29,
+          "y": 67,
+          "label": "Ferramentas / cabos",
+          "note": "Discuta objetos no piso e circulação."
+        },
+        {
+          "x": 50,
+          "y": 36,
+          "label": "Esmerilhamento",
+          "note": "Use para discutir proteção, projeção e zona de trabalho."
+        },
+        {
+          "x": 70,
+          "y": 50,
+          "label": "Máquina em manutenção",
+          "note": "Observe delimitação visual e acesso de terceiros."
+        },
+        {
+          "x": 90,
+          "y": 31,
+          "label": "Área controlada",
+          "note": "Discuta separação e organização da intervenção."
+        }
+      ],
+      "renderer": "hybrid-equirectangular+procedural",
+      "futureCompatibleWith": [
+        "equirectangular-image",
+        "cubemap"
+      ],
+      "graph": "data/environments/oficina/panorama/index.json",
+      "viewpointCount": 2,
+      "lazyNodeLoading": true,
+      "depthLayers": 3,
+      "hotspotActions": [
+        "note",
+        "node",
+        "object3d",
+        "mission3d"
+      ],
+      "image360Nodes": 2,
+      "qualityPolicy": {
+        "eco": "procedural",
+        "medium": "equirectangular medium",
+        "high": "equirectangular high",
+        "ultra": "equirectangular ultra"
+      },
+      "authoring": {
+        "enabled": true,
+        "localOnly": true,
+        "accept": "image/*",
+        "preferredProjection": "equirectangular",
+        "preferredAspectRatio": "2:1",
+        "exports": [
+          "node-json",
+          "medium-webp",
+          "high-webp",
+          "ultra-webp"
+        ]
+      },
+      "authoringEnabled": true,
+      "authoringTool": "panorama-authoring-tool"
+    },
+    {
+      "id": "grinder",
+      "type": "object3d",
+      "title": "Esmeril em foco",
+      "pack": "assets/sectors/oficina/g1/manifest.json",
+      "description": "Objeto 3D isolado para explicar visualmente guarda, zona de trabalho e organização ao redor.",
+      "callouts": [
+        "Proteção visível",
+        "Zona de contato",
+        "Base do equipamento",
+        "Área de projeção didática"
+      ],
+      "renderer": "Three.js + existing GLB/LOD"
+    },
+    {
+      "id": "esmerilhamento",
+      "type": "mission3d",
+      "title": "Missão 3D — corte e esmerilhamento",
+      "description": "Abre uma missão interativa 3D do setor com riscos, variantes, evidências e relatório.",
+      "renderer": "existing sector mission 3D"
+    }
+  ],
+  "loadPolicy": "experience-on-demand",
+  "tour": {
+    "id": "tour-oficina",
+    "path": "data/tours/oficina.json",
+    "stepCount": 4,
+    "label": "Tour visual guiado",
+    "routing": "branch-and-converge",
+    "routeChoices": 2,
+    "decisionStepId": "entrada"
+  }
+}

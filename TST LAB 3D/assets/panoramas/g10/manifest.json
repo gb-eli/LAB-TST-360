@@ -1,0 +1,351 @@
+{
+  "version": "0.31.0",
+  "projection": "equirectangular",
+  "sourceType": "generated-reference",
+  "nodes": 16,
+  "tiers": [
+    "medium",
+    "high",
+    "ultra"
+  ],
+  "files": [
+    {
+      "path": "assets/panoramas/g10/almoxarifado/armazenagem_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 11892,
+      "sha256": "a455f45ad06182c78d36f2db6fa2cf92efc18114ba46e93bec5a3db190e50fd5"
+    },
+    {
+      "path": "assets/panoramas/g10/almoxarifado/armazenagem_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6904,
+      "sha256": "fbdd240d26ea489fb00de71ad203f9f54a4c79e5a65f004953a20e378c4ac20e"
+    },
+    {
+      "path": "assets/panoramas/g10/almoxarifado/armazenagem_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 23156,
+      "sha256": "b2eebad4ee39e96f5c5e739b6669c1b126d3c7c27321e98f169ab26539c0b672"
+    },
+    {
+      "path": "assets/panoramas/g10/almoxarifado/separacao_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 14382,
+      "sha256": "f4de23ade281de7d1bb9d8bc82f10e983a8f60cc175f657364dbcc1e6a62b41c"
+    },
+    {
+      "path": "assets/panoramas/g10/almoxarifado/separacao_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 8294,
+      "sha256": "e4124238baf197ca35c3aa1b64297dbfe353b3e8d9f5512af29c1e70c0199af3"
+    },
+    {
+      "path": "assets/panoramas/g10/almoxarifado/separacao_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 27558,
+      "sha256": "63c8cc7fa81b8ca9c804b28edb09767d37d6d9ba81a3361802e696ff22be3767"
+    },
+    {
+      "path": "assets/panoramas/g10/construcao/frente-servico_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 10662,
+      "sha256": "eb76f3e3516ee8b914acea5677ecb0598165077a83bf50356392aa28d77dae27"
+    },
+    {
+      "path": "assets/panoramas/g10/construcao/frente-servico_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6000,
+      "sha256": "ae076bb90d1dea55f4b81842dbb65ad5ed0ec3a2d6f726d1496c9d9b51e9048f"
+    },
+    {
+      "path": "assets/panoramas/g10/construcao/frente-servico_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 21010,
+      "sha256": "a199ef428406f9bc35621d32185b3e5779d1eaf8f6964aab02f7934b980dda8a"
+    },
+    {
+      "path": "assets/panoramas/g10/construcao/zona-altura_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 13722,
+      "sha256": "4bc8a1a908d013f0e9e340e1fc901ae61d9a0f62e5051ddf4c36e3bb5d79dc13"
+    },
+    {
+      "path": "assets/panoramas/g10/construcao/zona-altura_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 7592,
+      "sha256": "a4552607e66ce774bd7d752a667989a52c92e573e5647d5c97439650d57a0a63"
+    },
+    {
+      "path": "assets/panoramas/g10/construcao/zona-altura_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 26114,
+      "sha256": "3566a3837c60b588ec8a34f934f01046f4f13724e28c3e3ae2b8a9869f90d5aa"
+    },
+    {
+      "path": "assets/panoramas/g10/escritorio/emergencia_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 10998,
+      "sha256": "315f57e5018ac1bf0510664a2a15e115d50e23b44a41f4120bf351dd42946acb"
+    },
+    {
+      "path": "assets/panoramas/g10/escritorio/emergencia_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6196,
+      "sha256": "12018ecaba57007f1eb4a2bf9fe1c51779d7d2c433118e8e72be2e46de9def4c"
+    },
+    {
+      "path": "assets/panoramas/g10/escritorio/emergencia_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 22068,
+      "sha256": "00ea0c2404deaeb278a731d2467b6cc171eec86936b82ece57e3d346af615ff3"
+    },
+    {
+      "path": "assets/panoramas/g10/escritorio/postos_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 9488,
+      "sha256": "fc3a3169542847e68b1af2c20bbe0361b645ea185a19259946de27bdc4fc9577"
+    },
+    {
+      "path": "assets/panoramas/g10/escritorio/postos_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 5584,
+      "sha256": "94b37a819e9143361a1ede370f4ae802710c220da4f25c7907ccf8d90b9b01bc"
+    },
+    {
+      "path": "assets/panoramas/g10/escritorio/postos_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 19160,
+      "sha256": "897aefd114f5ee12bacfaea477704a01bce7f9ac817c87a5d6064635f6cdd3c1"
+    },
+    {
+      "path": "assets/panoramas/g10/industria/linha_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 10482,
+      "sha256": "fc7c4398bd57fe2aeee813237ca86cbf70debf6ae5b51d96a4b72b72b2c8243b"
+    },
+    {
+      "path": "assets/panoramas/g10/industria/linha_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6140,
+      "sha256": "b75e914e6d7fe4ad53d33b7ec755f40e422bdd78fd1e861150cd87b19dceb772"
+    },
+    {
+      "path": "assets/panoramas/g10/industria/linha_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 21388,
+      "sha256": "0f3de8dcbb49b29b02bc7df60536309a647b0594e531583edb260ae03b956c8e"
+    },
+    {
+      "path": "assets/panoramas/g10/industria/logistica_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 13214,
+      "sha256": "f1d2d9df257cf39e0726a1d72c071518dff6158f455ab99c7962f88f40cd0ddb"
+    },
+    {
+      "path": "assets/panoramas/g10/industria/logistica_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 7490,
+      "sha256": "a452848e42b67d2d53a079ea0e7502c6abd5f06f3e2d867b2f34b3d8377cee4e"
+    },
+    {
+      "path": "assets/panoramas/g10/industria/logistica_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 26338,
+      "sha256": "2681391cf90448b51fcb39d24b14e31ab8493fb88363c4f628a1e870935182f2"
+    },
+    {
+      "path": "assets/panoramas/g10/obras-eletricas/preparacao_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 10094,
+      "sha256": "0f129d6f6fe675a9d2517d2d7034fe1f4563ff545419af91f6582dab5aa27f49"
+    },
+    {
+      "path": "assets/panoramas/g10/obras-eletricas/preparacao_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 5962,
+      "sha256": "38167bebeea216eb4c9f5fa4f4fcc90c28ea83e96013e9cec7cdbca7cf71db2e"
+    },
+    {
+      "path": "assets/panoramas/g10/obras-eletricas/preparacao_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 20588,
+      "sha256": "150f347bfbc4c55c3959f73cd6cf947143e91b9d451c0fe2d3cb165130ad8a6c"
+    },
+    {
+      "path": "assets/panoramas/g10/obras-eletricas/temporaria_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 13140,
+      "sha256": "51bed704cdaacb23d05944fb392c06acb042b27e6f32ff2132ab97f288582c19"
+    },
+    {
+      "path": "assets/panoramas/g10/obras-eletricas/temporaria_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 7536,
+      "sha256": "6aacac676d3208f4b5989390f573688bfa09ea9abd7b577df9956004d3d5c7e6"
+    },
+    {
+      "path": "assets/panoramas/g10/obras-eletricas/temporaria_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 25846,
+      "sha256": "b6596992d36ac2fcec6a45c1dc3a287e606e7298ae1d481f11431fec8b3e6396"
+    },
+    {
+      "path": "assets/panoramas/g10/oficina/esmerilhamento_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 9594,
+      "sha256": "08c77c3c57605c8691387fc3eff9e2ea4145743b471d088522e643d9f8067de4"
+    },
+    {
+      "path": "assets/panoramas/g10/oficina/esmerilhamento_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 5230,
+      "sha256": "4f6e65d6e2ba9488dfd1caacfc81433bb3c6ee8503a0b349b3ea2d41bfbf5b91"
+    },
+    {
+      "path": "assets/panoramas/g10/oficina/esmerilhamento_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 19758,
+      "sha256": "347fa5662c4303b51b06fb8299de9bd56d8eac707cbcab45206386542398c522"
+    },
+    {
+      "path": "assets/panoramas/g10/oficina/manutencao_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 11924,
+      "sha256": "f9a85229951ce55ee97a481f525e2411e811446a0a5d9f883637cb5b1e1bcfdf"
+    },
+    {
+      "path": "assets/panoramas/g10/oficina/manutencao_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6750,
+      "sha256": "dfab79ac73a9d5024f11cb23fed9ce666f4490adfdb1a67ce1cda140e54c224f"
+    },
+    {
+      "path": "assets/panoramas/g10/oficina/manutencao_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 24208,
+      "sha256": "0e356b2d34af16c5c8cd3189002c29252829f68d984897d04881a3eceb4dac8f"
+    },
+    {
+      "path": "assets/panoramas/g10/porto-logistica/doca_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 13588,
+      "sha256": "1ffcf664b2d4bb9708e59041dfb199ac7a12546414d0e043b7a5e1f09b0ddfb2"
+    },
+    {
+      "path": "assets/panoramas/g10/porto-logistica/doca_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 8154,
+      "sha256": "a2e56aafacae7f0f249cfaab8e9653c4b784df68e10939b1c6c86efd7222254d"
+    },
+    {
+      "path": "assets/panoramas/g10/porto-logistica/doca_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 26364,
+      "sha256": "e41610eba815a7588f321e792049d47dda73b5579e6d86634b33ca639dfe44e8"
+    },
+    {
+      "path": "assets/panoramas/g10/porto-logistica/patio_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 10448,
+      "sha256": "51a431152c1db5a62effcad2b4102fdaba53e7a422c412ad54c92ed8cd44786a"
+    },
+    {
+      "path": "assets/panoramas/g10/porto-logistica/patio_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6518,
+      "sha256": "8c8204f98a19cd6a1e3560a8ce220ab6d0cf337908dea3fe00fab690a1c88989"
+    },
+    {
+      "path": "assets/panoramas/g10/porto-logistica/patio_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 21314,
+      "sha256": "be3e96af1eae4ffeee541519bf2f2387349ae07dd59b6c11c4e2dcef02e1ae7e"
+    },
+    {
+      "path": "assets/panoramas/g10/saude/apoio_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 8952,
+      "sha256": "9cfc75e4d43fba9b184d10de3069b6c82863e1092ab35e9bb4c580284c11a082"
+    },
+    {
+      "path": "assets/panoramas/g10/saude/apoio_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 5546,
+      "sha256": "b3ac104ff685f3be0784a2cecfa55b4a005a9bcf9f7a351704ffc3a628e3db8f"
+    },
+    {
+      "path": "assets/panoramas/g10/saude/apoio_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 18554,
+      "sha256": "49ea781be6a4d72b040ca108ff61144b1d7a1baf5ff6893efb259450d01d2c5d"
+    },
+    {
+      "path": "assets/panoramas/g10/saude/transporte_high.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 10636,
+      "sha256": "6936cbf8231582af4739f13b9797e5857efb5cc94ddac83af01262217f2cd1b6"
+    },
+    {
+      "path": "assets/panoramas/g10/saude/transporte_medium.webp",
+      "width": 1024,
+      "height": 512,
+      "bytes": 6270,
+      "sha256": "89b5906e5894ab9d432e6a356ef442c4693c15012415c77c7191af744e07cbf8"
+    },
+    {
+      "path": "assets/panoramas/g10/saude/transporte_ultra.webp",
+      "width": 2400,
+      "height": 1200,
+      "bytes": 21642,
+      "sha256": "a4ff0758fc6376496a531d9e64d24b7d97ef69c33d7311324860e273014a8d3e"
+    }
+  ],
+  "replacementRule": "Arquivos podem ser substituídos por fotografias 360 equiretangulares 2:1 equivalentes mantendo os mesmos paths/dimensões/tier metadata ou atualizando o node JSON.",
+  "notice": "Os arquivos incluídos são referências gráficas geradas pelo projeto e não fotografias reais."
+}

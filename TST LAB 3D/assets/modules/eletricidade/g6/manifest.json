@@ -1,0 +1,37 @@
+{
+  "version": "g6",
+  "assets": {
+    "panel": {
+      "lod": {
+        "eco": "panel_lod0.glb",
+        "medium": "panel_lod0.glb",
+        "high": "panel_lod1.glb",
+        "ultra": "panel_lod1.glb"
+      }
+    },
+    "barrier": {
+      "lod": {
+        "eco": "barrier_lod0.glb",
+        "medium": "barrier_lod0.glb",
+        "high": "barrier_lod1.glb",
+        "ultra": "barrier_lod1.glb"
+      }
+    },
+    "cable_guard": {
+      "lod": {
+        "eco": "cable_guard_lod0.glb",
+        "medium": "cable_guard_lod0.glb",
+        "high": "cable_guard_lod1.glb",
+        "ultra": "cable_guard_lod1.glb"
+      }
+    },
+    "warning_sign": {
+      "lod": {
+        "eco": "warning_sign_lod0.glb",
+        "medium": "warning_sign_lod0.glb",
+        "high": "warning_sign_lod1.glb",
+        "ultra": "warning_sign_lod1.glb"
+      }
+    }
+  }
+}

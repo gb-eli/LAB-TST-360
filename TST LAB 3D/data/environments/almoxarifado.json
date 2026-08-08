@@ -1,0 +1,117 @@
+{
+  "version": "0.38.0",
+  "sectorId": "almoxarifado",
+  "label": "Almoxarifado",
+  "icon": "📦",
+  "theme": "warehouse",
+  "summary": "Armazenagem e separação de pedidos com corredores, racks, caixas, pallets e movimentação.",
+  "notice": "Conteúdo educacional para observação, comparação e discussão. Não substitui inspeção real, procedimento operacional, avaliação profissional ou requisito aplicável.",
+  "experiences": [
+    {
+      "id": "panorama-360",
+      "type": "panorama360",
+      "title": "Almoxarifado 360 — armazenagem",
+      "description": "Panorama didático para observar racks, corredores, empilhamento e separação de materiais.",
+      "hotspots": [
+        {
+          "x": 8,
+          "y": 34,
+          "label": "Rack",
+          "note": "Observe distribuição visual de materiais e organização da estrutura."
+        },
+        {
+          "x": 28,
+          "y": 58,
+          "label": "Corredor",
+          "note": "Analise largura visual e objetos que reduzem a circulação."
+        },
+        {
+          "x": 50,
+          "y": 42,
+          "label": "Empilhamento",
+          "note": "Compare alinhamento, estabilidade visual e organização."
+        },
+        {
+          "x": 71,
+          "y": 64,
+          "label": "Separação",
+          "note": "Discuta carrinhos, embalagens e movimentação de pedidos."
+        },
+        {
+          "x": 91,
+          "y": 28,
+          "label": "Material elevado",
+          "note": "Observe itens soltos em posições altas e possibilidade de queda."
+        }
+      ],
+      "renderer": "hybrid-equirectangular+procedural",
+      "futureCompatibleWith": [
+        "equirectangular-image",
+        "cubemap"
+      ],
+      "graph": "data/environments/almoxarifado/panorama/index.json",
+      "viewpointCount": 2,
+      "lazyNodeLoading": true,
+      "depthLayers": 3,
+      "hotspotActions": [
+        "note",
+        "node",
+        "object3d",
+        "mission3d"
+      ],
+      "image360Nodes": 2,
+      "qualityPolicy": {
+        "eco": "procedural",
+        "medium": "equirectangular medium",
+        "high": "equirectangular high",
+        "ultra": "equirectangular ultra"
+      },
+      "authoring": {
+        "enabled": true,
+        "localOnly": true,
+        "accept": "image/*",
+        "preferredProjection": "equirectangular",
+        "preferredAspectRatio": "2:1",
+        "exports": [
+          "node-json",
+          "medium-webp",
+          "high-webp",
+          "ultra-webp"
+        ]
+      },
+      "authoringEnabled": true,
+      "authoringTool": "panorama-authoring-tool"
+    },
+    {
+      "id": "rack",
+      "type": "object3d",
+      "title": "Rack de armazenagem em foco",
+      "pack": "assets/sectors/almoxarifado/g1/manifest.json",
+      "description": "Gire e aproxime o rack didático para destacar organização visual e relação com corredores.",
+      "callouts": [
+        "Montantes",
+        "Níveis de armazenagem",
+        "Organização dos volumes",
+        "Área de circulação frontal"
+      ],
+      "renderer": "Three.js + existing GLB/LOD"
+    },
+    {
+      "id": "armazenamento",
+      "type": "mission3d",
+      "title": "Missão 3D — armazenamento",
+      "description": "Abre uma missão interativa 3D do setor com riscos, variantes, evidências e relatório.",
+      "renderer": "existing sector mission 3D"
+    }
+  ],
+  "loadPolicy": "experience-on-demand",
+  "tour": {
+    "id": "tour-almoxarifado",
+    "path": "data/tours/almoxarifado.json",
+    "stepCount": 4,
+    "label": "Tour visual guiado",
+    "routing": "branch-and-converge",
+    "routeChoices": 2,
+    "decisionStepId": "entrada"
+  }
+}
