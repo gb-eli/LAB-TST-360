@@ -1,0 +1,26 @@
+{
+  "id": "ergonomia",
+  "name": "Ergonomia — Posto de Trabalho",
+  "version": "0.6.0",
+  "icon": "🪑",
+  "description": "Ajuste visual de posto administrativo com quatro parâmetros e análise postural didática.",
+  "renderer": "hybrid-svg-three-character",
+  "entry": "modules/ergonomia/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ],
+  "status": "functional",
+  "capabilities": [
+    "scenario-engine",
+    "assessment",
+    "report",
+    "three-runtime",
+    "webgl-fallback",
+    "character-rig",
+    "animated-postures"
+  ],
+  "graphicsStage": "G4"
+}

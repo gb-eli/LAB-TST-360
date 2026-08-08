@@ -1,0 +1,31 @@
+{
+  "id": "eletricidade",
+  "name": "Eletricidade — Inspeção",
+  "version": "0.12.0",
+  "icon": "⚡",
+  "description": "Sala elétrica simulada com inspeção híbrida 2D/3D G6, GLB/LOD e efeitos visuais adaptativos.",
+  "renderer": "SVG G1.5 + Three.js G6 + GLB/LOD",
+  "entry": "modules/eletricidade/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ],
+  "status": "functional",
+  "capabilities": [
+    "effects-g6",
+    "evidence-notes",
+    "glb",
+    "inspection",
+    "inspection-html-report",
+    "inspection-session",
+    "lod",
+    "performance-budget",
+    "report",
+    "risk-engine",
+    "scenario-variants",
+    "threejs",
+    "toolkit-risk-bridge"
+  ]
+}
