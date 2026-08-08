@@ -1,0 +1,24 @@
+{
+  "id": "investigacao-acidentes",
+  "name": "Investigação de Acidentes",
+  "version": "0.9.0",
+  "icon": "🔎",
+  "description": "Cena forense 2D/3D com evidências, reconstrução visual, captura de vistas, hipótese de causa e medida preventiva.",
+  "renderer": "SVG + Three.js forense G7",
+  "entry": "modules/investigacao-acidentes/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ],
+  "status": "functional",
+  "capabilities": [
+    "evidence",
+    "3d",
+    "forensic-reconstruction",
+    "capture",
+    "assessment",
+    "report"
+  ]
+}
