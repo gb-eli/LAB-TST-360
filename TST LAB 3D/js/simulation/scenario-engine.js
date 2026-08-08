@@ -1,1 +1,0 @@
-export class ScenarioEngine{constructor(events){this.events=events;this.state=new Map()}set(k,v){const previous=this.state.get(k);this.state.set(k,v);this.events.emit("scenario:changed",{key:k,previous,value:v})}get(k,f=null){return this.state.has(k)?this.state.get(k):f}clear(){this.state.clear();this.events.emit("scenario:cleared")}}
