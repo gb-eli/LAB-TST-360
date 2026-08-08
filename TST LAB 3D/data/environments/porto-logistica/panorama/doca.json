@@ -1,0 +1,96 @@
+{
+  "version": "0.31.0",
+  "sectorId": "porto-logistica",
+  "id": "doca",
+  "title": "Doca de carregamento",
+  "description": "Observe aproximação de veículos, porta de doca e movimentação próxima à borda.",
+  "sceneVariant": "secondary",
+  "startOffset": 45,
+  "hotspots": [
+    {
+      "id": "doca-h1",
+      "x": 9,
+      "y": 52,
+      "label": "Aproximação do caminhão",
+      "note": "Discuta alinhamento visual e circulação ao redor.",
+      "category": "flow"
+    },
+    {
+      "id": "doca-h2",
+      "x": 28,
+      "y": 34,
+      "label": "Reach stacker em foco",
+      "note": "Use o objeto 3D para relacionar equipamento e pátio.",
+      "category": "object",
+      "action": {
+        "type": "experience",
+        "experienceId": "reachstacker",
+        "label": "Abrir objeto 3D"
+      }
+    },
+    {
+      "id": "doca-h3",
+      "x": 50,
+      "y": 61,
+      "label": "Porta / acesso à doca",
+      "note": "Observe organização e acesso visual à área.",
+      "category": "structure"
+    },
+    {
+      "id": "doca-h4",
+      "x": 71,
+      "y": 39,
+      "label": "Missão pátio",
+      "note": "Abra a missão 3D integrada ao setor.",
+      "category": "mission",
+      "action": {
+        "type": "experience",
+        "experienceId": "patio-conteineres",
+        "label": "Abrir missão 3D"
+      }
+    },
+    {
+      "id": "doca-h5",
+      "x": 91,
+      "y": 50,
+      "label": "Voltar ao pátio",
+      "note": "Retorne ao panorama do pátio.",
+      "category": "node",
+      "action": {
+        "type": "node",
+        "nodeId": "patio",
+        "label": "Mudar ponto de observação"
+      }
+    }
+  ],
+  "image360": {
+    "projection": "equirectangular",
+    "sourceType": "generated-reference",
+    "notice": "Imagem 360 gráfica de referência gerada a partir do cenário didático; pode ser substituída futuramente por fotografia equiretangular real.",
+    "tiers": {
+      "medium": {
+        "src": "assets/panoramas/g10/porto-logistica/doca_medium.webp",
+        "width": 1024,
+        "height": 512,
+        "bytes": 8154
+      },
+      "high": {
+        "src": "assets/panoramas/g10/porto-logistica/doca_high.webp",
+        "width": 1600,
+        "height": 800,
+        "bytes": 13588
+      },
+      "ultra": {
+        "src": "assets/panoramas/g10/porto-logistica/doca_ultra.webp",
+        "width": 2400,
+        "height": 1200,
+        "bytes": 26364
+      }
+    },
+    "hotspotTransform": {
+      "top": 0.283333,
+      "height": 0.433333
+    },
+    "fallback": "procedural-svg-360-graph"
+  }
+}
