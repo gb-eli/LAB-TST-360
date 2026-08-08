@@ -1,0 +1,1 @@
+export class StorageService{constructor(ns="tst360"){this.ns=ns}key(k){return`${this.ns}:${k}`}get(k,f=null){try{const v=localStorage.getItem(this.key(k));return v===null?f:JSON.parse(v)}catch{return f}}set(k,v){try{localStorage.setItem(this.key(k),JSON.stringify(v));return true}catch{return false}}remove(k){localStorage.removeItem(this.key(k))}}
