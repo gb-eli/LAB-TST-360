@@ -1,0 +1,21 @@
+{
+  "version": "0.32.0",
+  "sectorId": "construcao",
+  "defaultNode": "frente-servico",
+  "nodes": [
+    {
+      "id": "frente-servico",
+      "title": "Frente de serviço",
+      "path": "data/environments/construcao/panorama/frente-servico.json",
+      "sceneVariant": "primary"
+    },
+    {
+      "id": "zona-altura",
+      "title": "Zona de altura e içamento",
+      "path": "data/environments/construcao/panorama/zona-altura.json",
+      "sceneVariant": "secondary"
+    }
+  ],
+  "renderer": "hybrid-equirectangular-lazy",
+  "authoringCompatible": true
+}
