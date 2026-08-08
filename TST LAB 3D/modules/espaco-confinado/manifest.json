@@ -1,0 +1,24 @@
+{
+  "id": "espaco-confinado",
+  "name": "Espaço Confinado",
+  "version": "0.7.0",
+  "icon": "🕳️",
+  "description": "Simulação de decisão preventiva envolvendo autorização, condições, comunicação e retomada.",
+  "renderer": "SVG G1.5 + Three.js G5 + decisão",
+  "entry": "modules/espaco-confinado/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ],
+  "status": "functional",
+  "capabilities": [
+    "scenario-engine",
+    "procedure",
+    "report",
+    "three",
+    "gltf",
+    "environment"
+  ]
+}

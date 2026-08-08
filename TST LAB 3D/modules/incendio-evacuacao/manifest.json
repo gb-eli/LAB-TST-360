@@ -1,0 +1,25 @@
+{
+  "id": "incendio-evacuacao",
+  "name": "Incêndio e Evacuação",
+  "version": "0.8.0",
+  "icon": "🚨",
+  "description": "Simulação híbrida 2D/3D G6 de resposta, rota e ponto de encontro com fumaça e sinalização adaptativas.",
+  "renderer": "SVG G1.5 + Three.js G6 + GLB/LOD",
+  "entry": "modules/incendio-evacuacao/module.js",
+  "quality": [
+    "eco",
+    "medium",
+    "high",
+    "ultra"
+  ],
+  "status": "functional",
+  "capabilities": [
+    "scenario-engine",
+    "procedure",
+    "report",
+    "threejs",
+    "glb",
+    "lod",
+    "effects-g6"
+  ]
+}
