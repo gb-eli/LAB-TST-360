@@ -1,0 +1,46 @@
+{
+  "version": "0.38.0",
+  "riskScale": {
+    "notice": "Escala didática interna do TST 360. Não substitui critérios, procedimentos ou metodologias oficiais adotadas pela instituição/organização.",
+    "levels": [
+      {
+        "min": 1,
+        "max": 4,
+        "label": "Baixo"
+      },
+      {
+        "min": 5,
+        "max": 9,
+        "label": "Moderado"
+      },
+      {
+        "min": 10,
+        "max": 16,
+        "label": "Alto"
+      },
+      {
+        "min": 17,
+        "max": 25,
+        "label": "Crítico"
+      }
+    ]
+  },
+  "categories": [
+    "Físico",
+    "Químico",
+    "Biológico",
+    "Ergonômico",
+    "Acidente",
+    "Outro"
+  ],
+  "checklist": [
+    "Acessos e circulação estão desobstruídos",
+    "Sinalização e isolamento estão adequados ao cenário",
+    "EPI necessário está disponível e compatível com a atividade",
+    "Proteções coletivas previstas estão presentes",
+    "Máquinas, ferramentas e equipamentos apresentam condição segura",
+    "Instalações e extensões elétricas não apresentam anomalias visíveis",
+    "Organização, limpeza e armazenamento reduzem riscos adicionais",
+    "Recursos de emergência e rotas estão acessíveis"
+  ]
+}
