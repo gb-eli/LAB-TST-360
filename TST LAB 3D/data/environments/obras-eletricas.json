@@ -1,0 +1,117 @@
+{
+  "version": "0.38.0",
+  "sectorId": "obras-eletricas",
+  "label": "Obras Elétricas",
+  "icon": "⚡",
+  "theme": "electrical",
+  "summary": "Cenário preventivo para observar painel, acesso, cabos, umidade e organização sem instruir intervenção energizada.",
+  "notice": "Conteúdo educacional para observação, comparação e discussão. Não substitui inspeção real, procedimento operacional, avaliação profissional ou requisito aplicável.",
+  "experiences": [
+    {
+      "id": "panorama-360",
+      "type": "panorama360",
+      "title": "Elétrica 360 — preparação da área",
+      "description": "Panorama preventivo para discutir controle visual de acesso, organização e condições ao redor de instalações.",
+      "hotspots": [
+        {
+          "x": 9,
+          "y": 42,
+          "label": "Controle de acesso",
+          "note": "Observe barreiras e leitura visual da área."
+        },
+        {
+          "x": 29,
+          "y": 34,
+          "label": "Painel",
+          "note": "Use apenas para reconhecer contexto e condições visuais, não para orientar intervenção."
+        },
+        {
+          "x": 50,
+          "y": 67,
+          "label": "Zona frontal",
+          "note": "Analise presença de materiais na área próxima aos equipamentos."
+        },
+        {
+          "x": 71,
+          "y": 60,
+          "label": "Cabos temporários",
+          "note": "Observe cruzamento de rotas e organização."
+        },
+        {
+          "x": 91,
+          "y": 47,
+          "label": "Umidade / entorno",
+          "note": "Discuta condições ambientais próximas à instalação."
+        }
+      ],
+      "renderer": "hybrid-equirectangular+procedural",
+      "futureCompatibleWith": [
+        "equirectangular-image",
+        "cubemap"
+      ],
+      "graph": "data/environments/obras-eletricas/panorama/index.json",
+      "viewpointCount": 2,
+      "lazyNodeLoading": true,
+      "depthLayers": 3,
+      "hotspotActions": [
+        "note",
+        "node",
+        "object3d",
+        "mission3d"
+      ],
+      "image360Nodes": 2,
+      "qualityPolicy": {
+        "eco": "procedural",
+        "medium": "equirectangular medium",
+        "high": "equirectangular high",
+        "ultra": "equirectangular ultra"
+      },
+      "authoring": {
+        "enabled": true,
+        "localOnly": true,
+        "accept": "image/*",
+        "preferredProjection": "equirectangular",
+        "preferredAspectRatio": "2:1",
+        "exports": [
+          "node-json",
+          "medium-webp",
+          "high-webp",
+          "ultra-webp"
+        ]
+      },
+      "authoringEnabled": true,
+      "authoringTool": "panorama-authoring-tool"
+    },
+    {
+      "id": "panel",
+      "type": "object3d",
+      "title": "Painel elétrico em foco",
+      "pack": "assets/modules/eletricidade/g6/manifest.json",
+      "description": "Visualização externa e preventiva do painel para explicações de contexto. Não orienta abertura, medição ou intervenção.",
+      "callouts": [
+        "Invólucro externo",
+        "Sinalização",
+        "Zona frontal",
+        "Acesso visual controlado"
+      ],
+      "renderer": "Three.js + existing GLB/LOD"
+    },
+    {
+      "id": "preparacao-area",
+      "type": "mission3d",
+      "title": "Missão 3D — preparação da área elétrica",
+      "description": "Abre uma missão interativa 3D do setor com riscos, variantes, evidências e relatório.",
+      "renderer": "existing sector mission 3D"
+    }
+  ],
+  "loadPolicy": "experience-on-demand",
+  "tour": {
+    "id": "tour-obras-eletricas",
+    "path": "data/tours/obras-eletricas.json",
+    "stepCount": 4,
+    "label": "Tour visual guiado",
+    "routing": "branch-and-converge",
+    "routeChoices": 2,
+    "decisionStepId": "entrada"
+  }
+}

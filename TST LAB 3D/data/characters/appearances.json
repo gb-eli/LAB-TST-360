@@ -1,0 +1,43 @@
+{
+  "version": "0.38.0",
+  "default": "standard",
+  "notice": "Perfis visuais genéricos para diversidade e diferenciação de personagens. Não representam identidade, etnia ou atributos pessoais de usuários reais.",
+  "profiles": {
+    "standard": {
+      "label": "Padrão",
+      "skin": "#986445",
+      "worker": "#d66a18",
+      "tst": "#244d3b",
+      "vest": "#2b9c5c",
+      "helmet": "#f0b817",
+      "pants": "#1f3444"
+    },
+    "warm": {
+      "label": "Variação quente",
+      "skin": "#b87955",
+      "worker": "#bc5b18",
+      "tst": "#265d4a",
+      "vest": "#358f5b",
+      "helmet": "#e8b22d",
+      "pants": "#263946"
+    },
+    "deep": {
+      "label": "Variação profunda",
+      "skin": "#6d422f",
+      "worker": "#c65a14",
+      "tst": "#1f5342",
+      "vest": "#2f8a57",
+      "helmet": "#e3af27",
+      "pants": "#172d39"
+    },
+    "cool": {
+      "label": "Variação fria",
+      "skin": "#8a5a43",
+      "worker": "#b55720",
+      "tst": "#28574d",
+      "vest": "#3b8e63",
+      "helmet": "#e5b830",
+      "pants": "#213845"
+    }
+  }
+}
